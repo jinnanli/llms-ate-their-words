@@ -1,0 +1,427 @@
+{
+  "audit_date": "2026-11-20",
+  "files_audited": 47,
+  "prompt_files": 27,
+  "upstreams": {
+    "microsoft": {
+      "repo": "microsoft/lost_in_conversation",
+      "commit": "c865793fe34a929d316119b0451d01bd9183bcfd",
+      "licenses": [
+        "LICENSE"
+      ]
+    },
+    "bfcl": {
+      "repo": "ShishirPatil/gorilla",
+      "commit": "c5ffaf09fd3556e88aed947a3aefde173ca31611",
+      "licenses": [
+        "LICENSE",
+        "gorilla/eval/eval-scripts/codebleu/parser/tree-sitter-python/LICENSE"
+      ]
+    },
+    "lcb": {
+      "repo": "LiveCodeBench/LiveCodeBench",
+      "commit": "998c52d394b836f15fff3b9a29866191108ff81b",
+      "licenses": [
+        "LICENSE"
+      ]
+    },
+    "spider": {
+      "repo": "taoyds/test-suite-sql-eval",
+      "commit": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "licenses": [
+        "LICENSE"
+      ]
+    },
+    "totto": {
+      "repo": "google-research/language",
+      "commit": "865fae65f63ef7e6b2989d4ff8b47f61750415a8",
+      "licenses": [
+        "LICENSE",
+        "language/frost/LICENSE"
+      ]
+    },
+    "summhay": {
+      "repo": "salesforce/summary-of-a-haystack",
+      "commit": "837ce0a96d05fd21ea3360c44d83d39fa743c70a",
+      "licenses": [
+        "LICENSE"
+      ]
+    },
+    "harness": {
+      "repo": "EleutherAI/lm-evaluation-harness",
+      "commit": "52df63b7b30da53c481ed9090598d9189fab1d91",
+      "licenses": [
+        "LICENSE.md"
+      ]
+    }
+  },
+  "comparisons_before_attribution_comments": [
+    {
+      "path": "code/evaluation/tasks/__init__.py",
+      "upstream": "tasks/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "abc8a4380856859b9166f48c7ee8ea31a6c63324a0290799f1b46c1875bf74d0"
+    },
+    {
+      "path": "code/evaluation/tasks/actions/__init__.py",
+      "upstream": "tasks/actions/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "f101c18ab02d6bd0113c659e92eaa63bd766b1455197d900a74eda42736a6676"
+    },
+    {
+      "path": "code/evaluation/tasks/actions/eval_bfcl.py",
+      "upstream": "tasks/actions/eval_bfcl.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "97bfbfb6f8b33e5e85af47f959f0d0cb851b54dbebe298a2798fe86e87b8d837"
+    },
+    {
+      "path": "code/evaluation/tasks/actions/task_actions.py",
+      "upstream": "tasks/actions/task_actions.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "b572c3932fd86681121f22f87cc960232e5f5f613130106edf671688783df4fb"
+    },
+    {
+      "path": "code/evaluation/tasks/code/__init__.py",
+      "upstream": "tasks/code/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "384b560be790228bd1e04006b8be279cbbb76f23b2b55ada6c02456ab95efb68"
+    },
+    {
+      "path": "code/evaluation/tasks/code/eval_code.py",
+      "upstream": "tasks/code/eval_code.py",
+      "comparison": "MODIFIED",
+      "sha256": "654e1b0c46def986b63a46de702475e4b20d9fc99e6294aa40f784ed7c51ebcd"
+    },
+    {
+      "path": "code/evaluation/tasks/code/task_code.py",
+      "upstream": "tasks/code/task_code.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "5a9ce2a484cea909927da829fa81915438ac42bfa53cb16e0c644c4502f7e928"
+    },
+    {
+      "path": "code/evaluation/tasks/data2text/__init__.py",
+      "upstream": "tasks/data2text/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "ef0610c12d5fab5894f99e04228d62bb2987cd7d4532da443009646980f5fd98"
+    },
+    {
+      "path": "code/evaluation/tasks/data2text/task_data2text.py",
+      "upstream": "tasks/data2text/task_data2text.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "53a1cb0c35b939c897329d92240b3734fa14a1cd64ed2f89aabb01daea8fb5e8"
+    },
+    {
+      "path": "code/evaluation/tasks/data2text/utils_totto.py",
+      "upstream": "tasks/data2text/utils_totto.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "2e62084a6d9d62e7e9b04fec7b0cf9e577e487fa432aac035387a37c0fb3df68"
+    },
+    {
+      "path": "code/evaluation/tasks/database/__init__.py",
+      "upstream": "tasks/database/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "21dec1b8013fbeaee76c7159108abd23bb5c11ab3efa1f6a91c483b2215e557b"
+    },
+    {
+      "path": "code/evaluation/tasks/database/eval_spider_exec.py",
+      "upstream": "tasks/database/eval_spider_exec.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "47445073ab2bf4d2e9c659bab292e34c9806a94a83d27d3d197575bb4c4f4b22"
+    },
+    {
+      "path": "code/evaluation/tasks/database/eval_spider_parse.py",
+      "upstream": "tasks/database/eval_spider_parse.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "a2fbd98f3b87325780f65c6a8d9e80240bf1da44ab5cd45d3e4869bc9bd7885d"
+    },
+    {
+      "path": "code/evaluation/tasks/database/task_database.py",
+      "upstream": "tasks/database/task_database.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "7163d1a1a321c8a560a68cfd6099f22fe74ad12a2ded14913fb27d37385f1744"
+    },
+    {
+      "path": "code/evaluation/tasks/math/__init__.py",
+      "upstream": "tasks/math/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "16c91c1c9aaa860bf8199330022b99290c88be6c7104caf41218f341ffcac2d9"
+    },
+    {
+      "path": "code/evaluation/tasks/math/task_math.py",
+      "upstream": "tasks/math/task_math.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "c8f4077e399aaabe4d25c756d52041903ef6cffdafd21b2a27f1604ac90f47f3"
+    },
+    {
+      "path": "code/evaluation/tasks/summary/__init__.py",
+      "upstream": "tasks/summary/__init__.py",
+      "comparison": "EOL_ONLY",
+      "sha256": "dbcb3e1e13890523c71a7195b5b103484e4cdb32c764591cf4774aa5b0abd40a"
+    },
+    {
+      "path": "code/evaluation/tasks/summary/eval_summhay.py",
+      "upstream": "tasks/summary/eval_summhay.py",
+      "comparison": "MODIFIED",
+      "sha256": "f4da38b35c5db641992318a0a116e2660297b21239c77926bdfc3ca1d5302c61"
+    },
+    {
+      "path": "code/evaluation/tasks/summary/task_summary.py",
+      "upstream": "tasks/summary/task_summary.py",
+      "comparison": "MODIFIED",
+      "sha256": "4302ac1fae8f805d84129b1858326721606e11545307c0ca0da440a8fb3641cb"
+    },
+    {
+      "path": "code/evaluation/tasks/tasks.py",
+      "upstream": "tasks/tasks.py",
+      "comparison": "MODIFIED",
+      "sha256": "d24c6d6b50c5d4ddfe5c2275c1562ceefd90dba45ab942efd705528b9698aaaf"
+    },
+    {
+      "path": "prompts/actions/actions_full_prompt.txt",
+      "upstream": "prompts/actions/actions_full_prompt.txt",
+      "comparison": "EXACT_BYTES",
+      "sha256": "25963d8663d01095e92e8e5e971e99637e270cc38021319c5d9781e3232b420a"
+    },
+    {
+      "path": "prompts/actions/actions_system_prompt.txt",
+      "upstream": "prompts/actions/actions_system_prompt.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "b0b04b8bd5aed99819aae3bfe4a2cfe619295de871a0672464ec7ee516e1dda3"
+    },
+    {
+      "path": "prompts/actions/apis_system_prompt_multiturn.txt",
+      "upstream": "prompts/actions/apis_system_prompt_multiturn.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "41534bffd6106766768d2cd2f21f8286fffb91bf5fa0d6c4ac286e96514dbbe7"
+    },
+    {
+      "path": "prompts/actions/bfcl_lazification_conversational.txt",
+      "upstream": "prompts/actions/bfcl_lazification_conversational.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "a2252957218df53ebc0d169dcaa0924aa88fd97917518e1ba3dd0edf8ea84e12"
+    },
+    {
+      "path": "prompts/actions/bfcl_lazification_segment.txt",
+      "upstream": "prompts/actions/bfcl_lazification_segment.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "25b25c421d29eb43ff3bf6d4e4fc4ee6f47a88120c3246cdad75aed90d73c4ef"
+    },
+    {
+      "path": "prompts/data2text/data2text_full_prompt.txt",
+      "upstream": "prompts/data2text/data2text_full_prompt.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "2c58111dbbbc5b880758c181f6f865c4476aae1096965e3a7df93fce009f5033"
+    },
+    {
+      "path": "prompts/data2text/data2text_system_prompt.txt",
+      "upstream": "prompts/data2text/data2text_system_prompt.txt",
+      "comparison": "EXACT_BYTES",
+      "sha256": "c30fbbec676d4a91342ae86ed1b3f0e56b88129fd5761aee67c29cc4c2083b10"
+    },
+    {
+      "path": "prompts/database/database_full_prompt.txt",
+      "upstream": "prompts/database/database_full_prompt.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "8ef6d63c533efd9d63b66a8c3bf02dbd08f1714d110697c056a508b93948ab6c"
+    },
+    {
+      "path": "prompts/database/database_lazification_oneshot.txt",
+      "upstream": "prompts/database/database_lazification_oneshot.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "d185b5072987e876a1fa3cea6caa1c15747f4085d4f3164e2ac1ee759db36acb"
+    },
+    {
+      "path": "prompts/database/database_system_prompt.txt",
+      "upstream": "prompts/database/database_system_prompt.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "0554e1510656d5df03bd1a6475f64be204ba34bcf9218de1e265a1349f5be9fe"
+    },
+    {
+      "path": "prompts/lazification_conversational.txt",
+      "upstream": "prompts/lazification_conversational.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "ba82410a2cd5ded5e2091a882c6e2584fe1b5aa1482fb7dab2d9e23d3c0b0629"
+    },
+    {
+      "path": "prompts/lazification_gradual.txt",
+      "upstream": "prompts/lazification_gradual.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "17f8b872e82bd9d0ae89af76ade038a1757a404025d13f5c7c50a1f7d2ef0dcb"
+    },
+    {
+      "path": "prompts/lazification_segment.txt",
+      "upstream": "prompts/lazification_segment.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "1ffb8ac83b5ea935c0146119c9a84f6929199df7f0adb4a97e08cee47805d379"
+    },
+    {
+      "path": "prompts/lazification_verification.txt",
+      "upstream": "prompts/lazification_verification.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "3ddf8abef619e7156b24b3450ecab2cae3768563d2d9aada14cb6bba8cf50be6"
+    },
+    {
+      "path": "prompts/math/gsm8k_lazification_conversational.txt",
+      "upstream": "prompts/math/gsm8k_lazification_conversational.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "ba486c620f807914feee24e074d5be78cdeb9765384a1c6a5c71a2b16d8eec68"
+    },
+    {
+      "path": "prompts/math/gsm8k_lazification_segment.txt",
+      "upstream": "prompts/math/gsm8k_lazification_segment.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "6f2a20249fcf7120509f1a0c851488937774f751d423c25018aeeac8ddd2c428"
+    },
+    {
+      "path": "prompts/math/math_full_prompt.txt",
+      "upstream": "prompts/math/math_full_prompt.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "f5a1c3ae4530c1d71fbd2edff1695cc50a6f58e0e64ac17ea6982d3bd8a2f904"
+    },
+    {
+      "path": "prompts/math/math_system_prompt.txt",
+      "upstream": "prompts/math/math_system_prompt.txt",
+      "comparison": "EXACT_BYTES",
+      "sha256": "db8fe01172e7c2f919763dcb26b253a20b0d6eb17fdb2aae198d681dbb1a65e7"
+    },
+    {
+      "path": "prompts/summary/summary_full_prompt_conv.txt",
+      "upstream": "prompts/summary/summary_full_prompt_conv.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "e05ae3192d82d3a2d31b1a004087f3a57f528be7308eecd30dba737cfe980505"
+    },
+    {
+      "path": "prompts/summary/summary_full_prompt_news.txt",
+      "upstream": "prompts/summary/summary_full_prompt_news.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "19aeabcd58cc4dee4bd42caf1021cef970ccc9835a8c03bda82b1683926761a0"
+    },
+    {
+      "path": "prompts/summary/summary_system_prompt.txt",
+      "upstream": "prompts/summary/summary_system_prompt.txt",
+      "comparison": "EXACT_BYTES",
+      "sha256": "f1e56c731af1e4953ef1b023ccf88fc6fc0a4104636c5ea2da40a43a797644ba"
+    },
+    {
+      "path": "prompts/summary/summhay_evaluation.txt",
+      "upstream": "prompts/summary/summhay_evaluation.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "8ee797219848fc1f2c4b958db3c111615f3a1ccbd9bedb208ca3c238b26fccab"
+    },
+    {
+      "path": "prompts/system_answer_extraction.txt",
+      "upstream": "prompts/system_answer_extraction.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "01caba9c267c366c6619160938b4c5b0dded9b5bb74e0db68c2fef92855a97b5"
+    },
+    {
+      "path": "prompts/system_answer_extraction_gen.txt",
+      "upstream": "prompts/system_answer_extraction_gen.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "b9b8eadd700fcad1a3b787a0041232858469803b25c36790a2cd2ca77ce0589b"
+    },
+    {
+      "path": "prompts/system_answer_extraction_prefix_suffix.txt",
+      "upstream": "prompts/system_answer_extraction_prefix_suffix.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "6c07944b5d88e8041aca8a610149cb38860c6bbf85f1271ed960513239ca93c6"
+    },
+    {
+      "path": "prompts/system_turn_categorization.txt",
+      "upstream": "prompts/system_turn_categorization.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "2669827fa87391c2ec6ee9fa0902bb5cd4a97d46a2fa9e86781f7a522ac15985"
+    },
+    {
+      "path": "prompts/user_agent.txt",
+      "upstream": "prompts/user_agent.txt",
+      "comparison": "EOL_ONLY",
+      "sha256": "f59f0d1ce1fef9fe9c91366d9a75cf5478d56bbdbaa9dbf45a49c141f40d4627"
+    }
+  ],
+  "component_comparisons": [
+    {
+      "component": "bfcl_utils",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/c5ffaf09fd3556e88aed947a3aefde173ca31611/berkeley-function-call-leaderboard/bfcl/model_handler/utils.py",
+      "exact_normalized": false,
+      "similarity": 0.118313404657017
+    },
+    {
+      "component": "bfcl_ast",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/c5ffaf09fd3556e88aed947a3aefde173ca31611/berkeley-function-call-leaderboard/bfcl/eval_checker/ast_eval/ast_checker.py",
+      "exact_normalized": false,
+      "similarity": 0.8155880306193458
+    },
+    {
+      "component": "lcb_testing",
+      "url": "https://raw.githubusercontent.com/LiveCodeBench/LiveCodeBench/998c52d394b836f15fff3b9a29866191108ff81b/lcb_runner/evaluation/testing_util.py",
+      "exact_normalized": false,
+      "similarity": 0.8857615894039735
+    },
+    {
+      "component": "lcb_prompt",
+      "url": "https://raw.githubusercontent.com/LiveCodeBench/LiveCodeBench/998c52d394b836f15fff3b9a29866191108ff81b/lcb_runner/prompts/code_generation.py",
+      "exact_normalized": false,
+      "similarity": 0.017118402282453638
+    },
+    {
+      "component": "spider_exec",
+      "url": "https://raw.githubusercontent.com/taoyds/test-suite-sql-eval/e97acc546ecbee8fa27fa8dbf025ef61493a876c/exec_eval.py",
+      "exact_normalized": false,
+      "similarity": 0.9447852760736196
+    },
+    {
+      "component": "spider_parse",
+      "url": "https://raw.githubusercontent.com/taoyds/test-suite-sql-eval/e97acc546ecbee8fa27fa8dbf025ef61493a876c/parse.py",
+      "exact_normalized": true,
+      "similarity": 1.0
+    },
+    {
+      "component": "totto_utils",
+      "url": "https://raw.githubusercontent.com/google-research/language/865fae65f63ef7e6b2989d4ff8b47f61750415a8/language/totto/table_to_text_html_utils.py",
+      "exact_normalized": false,
+      "similarity": 0.8325358851674641
+    },
+    {
+      "component": "summhay_eval",
+      "url": "https://raw.githubusercontent.com/salesforce/summary-of-a-haystack/837ce0a96d05fd21ea3360c44d83d39fa743c70a/utils_eval.py",
+      "exact_normalized": false,
+      "similarity": 0.3333333333333333
+    },
+    {
+      "component": "summhay_prompt",
+      "url": "https://raw.githubusercontent.com/salesforce/summary-of-a-haystack/837ce0a96d05fd21ea3360c44d83d39fa743c70a/prompts/eval_summhay.txt",
+      "exact_normalized": false,
+      "similarity": 1.0
+    },
+    {
+      "component": "summhay_conv",
+      "url": "https://raw.githubusercontent.com/salesforce/summary-of-a-haystack/837ce0a96d05fd21ea3360c44d83d39fa743c70a/prompts/summarization_conv.txt",
+      "exact_normalized": false,
+      "similarity": 0.6666666666666666
+    },
+    {
+      "component": "summhay_news",
+      "url": "https://raw.githubusercontent.com/salesforce/summary-of-a-haystack/837ce0a96d05fd21ea3360c44d83d39fa743c70a/prompts/summarization_news.txt",
+      "exact_normalized": false,
+      "similarity": 0.6666666666666666
+    },
+    {
+      "component": "harness_metrics",
+      "url": "https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/52df63b7b30da53c481ed9090598d9189fab1d91/lm_eval/api/metrics.py",
+      "exact_normalized": false,
+      "similarity": 0.045941807044410414
+    }
+  ],
+  "licensing_status": "AUTHOR_CONFIRMED_2026-11-20",
+  "resolved": [
+    "Stack Overflow-derived Capturing removed; stdlib replacement regression tested"
+  ],
+  "author_confirmed_items": [
+    "Author licensing authority for project additions",
+    "Author confirmation of adapted prompt sidecar packaging"
+  ],
+  "additional_prompt_source": {
+    "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/c5ffaf09fd3556e88aed947a3aefde173ca31611/berkeley-function-call-leaderboard/bfcl/model_handler/constant.py"
+  }
+}

@@ -1,0 +1,37 @@
+version: p5-panel-v1
+frozen_at: 2026-08-12
+provider_alias: openai_compatible_endpoint
+group: default
+group_multiplier: 1.0
+models:
+  - canonical_label: GPT-5.6 Luna
+    requested_alias: gpt-5.6-luna
+    family: closed_frontier
+    scope: existing_layer_a_and_neutral_ack
+  - canonical_label: Grok 4.5
+    requested_alias: grok-4.5
+    family: closed_frontier
+    scope: existing_layer_a_and_neutral_ack
+  - canonical_label: GPT-4o
+    requested_alias: gpt-4o
+    smoke_returned_model: gpt-4o-2024-08-06
+    family: previous_generation_closed
+    scope: new_layer_a_and_neutral_ack
+  - canonical_label: DeepSeek V3.2
+    requested_alias: deepseek-ai/DeepSeek-V3.2
+    smoke_returned_model: deepseek-ai/DeepSeek-V3.2
+    family: strong_open_weight
+    context_tokens: 164000
+    scope: new_layer_a_and_neutral_ack
+  - canonical_label: Qwen3 14B
+    requested_alias: Qwen/Qwen3-14B
+    smoke_returned_model: Qwen/Qwen3-14B
+    family: small_open_weight_14b
+    parameter_scale: 14B
+    context_tokens: 131000
+    scope: new_layer_a_and_neutral_ack
+helper_routing:
+  user_simulator: gpt-5.6-luna
+  strategy_classifier: gpt-5.6-luna
+  answer_extractor: gpt-5.6-luna
+  summary_evaluator: gpt-4o

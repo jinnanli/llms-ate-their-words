@@ -1,0 +1,11 @@
+task,continuous_epsilon,positive,negative,zero,branches
+actions,0.0,4,3,28,35
+code,0.0,4,0,49,53
+data2text,0.0,17,21,5,43
+math,0.0,8,3,27,38
+summary,0.0,24,8,18,50
+actions,0.01,4,3,28,35
+code,0.01,4,0,49,53
+data2text,0.01,15,13,15,43
+math,0.01,8,3,27,38
+summary,0.01,22,6,22,50

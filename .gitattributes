@@ -1,0 +1,10 @@
+# Preserve frozen measurements, prompts and inherited license bytes.
+data/** -text
+results/** -text
+prompts/** -text
+LICENSE -text
+docs/licenses/** -text
+*.pdf binary
+*.png binary
+*.py text eol=lf
+*.md text eol=lf

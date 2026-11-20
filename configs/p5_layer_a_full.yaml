@@ -1,0 +1,20 @@
+version: p5-layer-a-full-v1
+experiment_id: P5_layer_a_full_20260812
+wave: p5_layer_a_full
+dataset: data/sharded_instructions_600.json
+dataset_expected_count: 627
+required_paths: [data/spider/databases]
+models: [gpt-4o, deepseek-ai/DeepSeek-V3.2, Qwen/Qwen3-14B]
+system_model: gpt-5.6-luna
+user_model: gpt-5.6-luna
+provider_alias: openai_compatible_endpoint
+summary_evaluator_model: gpt-4o
+modes: [full, concat, sharded]
+temperature: 0.0
+helper_temperature: 0.0
+repeat_indices: [0]
+max_api_attempts_per_call: 3
+external_root: ./external_raw/P5_scaling_history
+output_subdir: layer_a_full_v1
+selection: {all: true}
+planned_conversation_cells: 5643

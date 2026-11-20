@@ -1,0 +1,3 @@
+metric,ci_low,ci_high,valid_replicates,unit
+pearson,-0.21171984858354456,0.889500012603819,10000,crossed model/task cell resampling; descriptive only
+spearman,-0.1439206052683602,0.9198150993043258,10000,crossed model/task cell resampling; descriptive only

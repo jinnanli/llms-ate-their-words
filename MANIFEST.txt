@@ -1,0 +1,83 @@
+README.md
+  Main project guide: installation, offline reproduction, model experiments,
+  internal analysis, data requirements, and citation/license information.
+
+requirements.txt
+  Tested CPU release environment. Optional API/GPU dependencies are separate;
+  historical inference package versions were not completely frozen.
+
+LICENSE
+  License accompanying the inherited evaluation code.
+
+THIRD_PARTY_NOTICES.md
+  Component attribution, retained licenses, and publication actions.
+
+code/review/test_code_capture.py
+docs/CODE_CAPTURE_VALIDATION.md
+  Stdlib stdout-capture scoring regressions and replacement validation.
+
+docs/THIRD_PARTY_PROVENANCE.md
+docs/third_party_provenance_audit.json
+docs/licenses/
+  File-level source/license audit and seven pinned upstream license copies.
+  Actions/Summary prompt .license sidecars record attribution without changing inputs.
+
+code/evaluation/
+  Final FULL/CONCAT/SHARDED simulator and six task-specific evaluators.
+
+code/interventions/
+  Final whole-history, length-control, and reciprocal-restoration code.
+
+code/turn_surgery/
+  Deterministic branch construction and offline Turn-Surgery aggregation.
+
+code/statistics/
+  Compact-data construction and final offline RQ1--RQ3 analyses.
+
+code/internal_analysis/
+  Final Qwen3-14B held-out execution and internal-probe analysis code.
+
+code/plotting/
+  Portable renderers for the final conceptual and data-driven figures.
+
+configs/
+  Frozen behavioral configuration, reproducibility/evaluator metadata, and
+  normalized RQ4 schema headers. Machine-local paths are replaced by relative
+  placeholders.
+
+data/rq1/, data/rq2/, data/rq3/
+  Compact behavioral tables defining reported analysis populations and effects.
+  Long generated outputs are omitted from the RQ3 branch copy.
+
+data/rq4/
+  Compact held-out population/branch manifests and processed numeric internal
+  feature ledgers. Full messages and raw tensors are omitted.
+
+data/figures/
+  Frozen machine-readable plotting tables for Figures 2--5.
+
+results/rq1/ ... results/rq4/
+  Final aggregate results, uncertainty summaries, and paper-facing number
+  lookups for the four research questions.
+
+results/cross_rq/ and results/restoration/
+  Compact final supporting analyses retained because they delimit the reported
+  causal interpretation.
+
+results/figures/
+  Final vector PDFs. PNG previews are omitted because they are redundant.
+
+Intentionally excluded for size, privacy, or licensing:
+  raw model generations and conversation transcripts; API caches and response
+  IDs; model checkpoints and Hugging Face caches; full layer/head attention
+  tensors; third-party benchmark corpora and Spider databases; logs and cluster
+  job output; preliminary/pilot/obsolete analyses; failed annotation artifacts;
+  manuscript sources/PDFs; Git metadata; editor and agent files; planning notes;
+  old figures; archives; personal paths; and credentials.
+
+code/review/, data/review/, results/review/
+  Portable review Null-Replay constructors, external-data adapter, offline
+  numeric reproduction, and compact frozen Qwen five-task results.
+
+prompts/, docs/
+  Required prompt templates, usage/attribution and CPU validation records.

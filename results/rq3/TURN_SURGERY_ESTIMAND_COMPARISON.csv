@@ -1,0 +1,5 @@
+﻿metric,branch_weighted_estimate,branch_weighted_CI,trajectory_equal_estimate,trajectory_equal_CI,interpretation
+mean_effect,0.10980373395907353,"[0.0765485660769182, 0.150569922462085]",0.14767887396574952,"[0.116395274775288, 0.180026542137075]",Mean score effect: random tested branch vs equal-weight sampled trajectory
+positive_fraction,0.2743055555555556,"[0.198259041444177, 0.354033126254051]",0.31548623668876835,"[0.275015069318867, 0.357571830419932]",Positive-turn fraction: branch prevalence vs mean within-trajectory fraction
+no_change_fraction,0.6201388888888889,"[0.512903225806452, 0.724507478557689]",0.5764583751925524,"[0.523399010448061, 0.627598955193892]",No-change fraction: branch prevalence vs mean within-trajectory fraction
+negative_fraction,0.10555555555555556,"[0.0699998643516007, 0.149671052631579]",0.10805538811867926,"[0.0799406017681334, 0.137653665193222]",Negative-turn fraction: branch prevalence vs mean within-trajectory fraction

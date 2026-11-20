@@ -1,0 +1,854 @@
+{
+  "sources": {
+    "rq1": "data/rq1/rq1_cell_summary.csv",
+    "rq2": "data/rq2/rq2_paired_trajectory.csv",
+    "rq3": "data/rq3/turn_surgery_branches_compact.csv",
+    "l1": "data/rq3/trajectory_sensitivity_summary.csv",
+    "selected_full_sharded": "external_raw/P5_scaling_history/manifests/p5_source_trajectories.csv"
+  },
+  "population": {
+    "model_task_cells": 30,
+    "rq2_paired_trajectories": 2973,
+    "rq3_selected_trajectories": 237,
+    "rq3_valid_branches": 1440,
+    "selected_with_short_ack": 231,
+    "selected_without_short_ack": 6,
+    "selected_with_full_sharded": 237
+  },
+  "rq1_rq2_cell": {
+    "correlations": {
+      "n": 30,
+      "pearson": 0.33787769664292644,
+      "pearson_bootstrap_95ci": [
+        -0.0961045470039787,
+        0.7614408439131451
+      ],
+      "spearman": 0.5527985175029584,
+      "spearman_bootstrap_95ci": [
+        0.15032908821033023,
+        0.8196894521211113
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260821,
+      "weighted_pearson": 0.38608874163793366,
+      "weighted_pearson_bootstrap_95ci": [
+        -0.028933582648807302,
+        0.7563663969705424
+      ],
+      "weight_column": "paired_n"
+    },
+    "regressions": {
+      "unadjusted": {
+        "formula": "rq2_mean_short_delta ~ degradation_full_sharded",
+        "term": "degradation_full_sharded",
+        "coefficient": 0.4344334024923585,
+        "hc3_95ci": [
+          -0.2333239769129114,
+          1.1021907818976284
+        ],
+        "p_value": 0.2022651640446823,
+        "r_squared": 0.11416133788872929,
+        "n": 30,
+        "residual_df": 28.0
+      },
+      "model_adjusted": {
+        "formula": "rq2_mean_short_delta ~ degradation_full_sharded + C(model)",
+        "term": "degradation_full_sharded",
+        "coefficient": 0.5111936938718293,
+        "hc3_95ci": [
+          -0.05913539611812124,
+          1.08152278386178
+        ],
+        "p_value": 0.07896174644777226,
+        "r_squared": 0.47197365167786476,
+        "n": 30,
+        "residual_df": 24.0
+      },
+      "task_adjusted": {
+        "formula": "rq2_mean_short_delta ~ degradation_full_sharded + C(task)",
+        "term": "degradation_full_sharded",
+        "coefficient": 0.17727334020973384,
+        "hc3_95ci": [
+          -0.9519013681386942,
+          1.306448048558162
+        ],
+        "p_value": 0.758309066657324,
+        "r_squared": 0.44168797069135046,
+        "n": 30,
+        "residual_df": 23.0
+      },
+      "model_task_adjusted": {
+        "formula": "rq2_mean_short_delta ~ degradation_full_sharded + C(model) + C(task)",
+        "term": "degradation_full_sharded",
+        "coefficient": 0.5373196260202435,
+        "hc3_95ci": [
+          -0.23823826478280652,
+          1.3128775168232936
+        ],
+        "p_value": 0.17449662236961339,
+        "r_squared": 0.7884326746657229,
+        "n": 30,
+        "residual_df": 19.0
+      }
+    }
+  },
+  "rq2_rq3_cell": {
+    "positive_turn_fraction": {
+      "n": 30,
+      "pearson": -0.1676684771094949,
+      "pearson_bootstrap_95ci": [
+        -0.5156167234140778,
+        0.16550323227403546
+      ],
+      "spearman": -0.289432703003337,
+      "spearman_bootstrap_95ci": [
+        -0.5857687230896632,
+        0.10395859532193158
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260822
+    },
+    "any_positive_trajectory_rate": {
+      "n": 30,
+      "pearson": -0.2799335573081415,
+      "pearson_bootstrap_95ci": [
+        -0.6100576061443167,
+        0.05300421751109572
+      ],
+      "spearman": -0.44438619465755996,
+      "spearman_bootstrap_95ci": [
+        -0.7188539965206305,
+        -0.062095692567411646
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260823
+    },
+    "mean_local_effect_trajectory_equal": {
+      "n": 30,
+      "pearson": 0.115501579912062,
+      "pearson_bootstrap_95ci": [
+        -0.1103125804078808,
+        0.32392845340451976
+      ],
+      "spearman": 0.20355951056729701,
+      "spearman_bootstrap_95ci": [
+        -0.1358386049389229,
+        0.49754384076067143
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260824
+    },
+    "robust_positive_turn_fraction": {
+      "n": 30,
+      "pearson": -0.12990186149455255,
+      "pearson_bootstrap_95ci": [
+        -0.45184277476723783,
+        0.1613423173923176
+      ],
+      "spearman": -0.25383759733036704,
+      "spearman_bootstrap_95ci": [
+        -0.5524920626226171,
+        0.12354676222212704
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260825
+    },
+    "robust_any_positive_trajectory_rate": {
+      "n": 30,
+      "pearson": -0.24204698258029356,
+      "pearson_bootstrap_95ci": [
+        -0.5487848226219326,
+        0.058775848822799646
+      ],
+      "spearman": -0.4193766296001612,
+      "spearman_bootstrap_95ci": [
+        -0.6920639611534971,
+        -0.05408463550365458
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260826
+    },
+    "adjusted_regressions": {
+      "positive_turn_fraction_task_adjusted": {
+        "formula": "positive_turn_fraction ~ rq2_mean_short_delta + C(task)",
+        "term": "rq2_mean_short_delta",
+        "coefficient": -0.07241953376770133,
+        "hc3_95ci": [
+          -0.309404620058381,
+          0.16456555252297836
+        ],
+        "p_value": 0.5492133735317326,
+        "r_squared": 0.7274344804141986,
+        "n": 30,
+        "residual_df": 23.0
+      },
+      "positive_turn_fraction_model_task_adjusted": {
+        "formula": "positive_turn_fraction ~ rq2_mean_short_delta + C(model) + C(task)",
+        "term": "rq2_mean_short_delta",
+        "coefficient": -0.16086423560051796,
+        "hc3_95ci": [
+          -0.663220236224497,
+          0.341491765023461
+        ],
+        "p_value": 0.5302536405810025,
+        "r_squared": 0.7447391195291523,
+        "n": 30,
+        "residual_df": 19.0
+      },
+      "any_positive_task_adjusted": {
+        "formula": "any_positive_trajectory_rate ~ rq2_mean_short_delta + C(task)",
+        "term": "rq2_mean_short_delta",
+        "coefficient": -0.16023763656987175,
+        "hc3_95ci": [
+          -0.4348803338096886,
+          0.11440506066994507
+        ],
+        "p_value": 0.2528218801969122,
+        "r_squared": 0.8039939270947047,
+        "n": 30,
+        "residual_df": 23.0
+      },
+      "any_positive_model_task_adjusted": {
+        "formula": "any_positive_trajectory_rate ~ rq2_mean_short_delta + C(model) + C(task)",
+        "term": "rq2_mean_short_delta",
+        "coefficient": -0.391118072008401,
+        "hc3_95ci": [
+          -0.8604826885226236,
+          0.07824654450582152
+        ],
+        "p_value": 0.1024219933727587,
+        "r_squared": 0.857321213331152,
+        "n": 30,
+        "residual_df": 19.0
+      }
+    }
+  },
+  "rq2_rq3_same_trajectory": {
+    "short_delta_vs_positive_fraction": {
+      "n": 231,
+      "pearson": -0.004962824099905002,
+      "pearson_bootstrap_95ci": [
+        -0.13380806245340884,
+        0.12539965881008833
+      ],
+      "spearman": 0.05899857623786224,
+      "spearman_bootstrap_95ci": [
+        -0.0753575722141147,
+        0.19481654069468884
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260827
+    },
+    "short_delta_vs_any_positive": {
+      "n": 231,
+      "pearson": 0.024550834944466624,
+      "pearson_bootstrap_95ci": [
+        -0.10390511858995026,
+        0.1502227812560353
+      ],
+      "spearman": 0.08139321308679337,
+      "spearman_bootstrap_95ci": [
+        -0.0500187261909101,
+        0.21148703939067465
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260828
+    },
+    "short_delta_vs_mean_local_effect": {
+      "n": 231,
+      "pearson": 0.47296031536995387,
+      "pearson_bootstrap_95ci": [
+        0.3720533772425844,
+        0.5656805162558717
+      ],
+      "spearman": 0.35709222751651726,
+      "spearman_bootstrap_95ci": [
+        0.23458742798362764,
+        0.4731276273178094
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260829
+    },
+    "short_delta_vs_n_positive": {
+      "n": 231,
+      "pearson": -0.12506087698272206,
+      "pearson_bootstrap_95ci": [
+        -0.23397725534787092,
+        -0.009875421188397192
+      ],
+      "spearman": 0.002619356394180445,
+      "spearman_bootstrap_95ci": [
+        -0.1261753190195926,
+        0.1364701887532852
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260836
+    },
+    "short_delta_vs_max_positive_delta": {
+      "n": 151,
+      "pearson": 0.6826159083851033,
+      "pearson_bootstrap_95ci": [
+        0.5886858805385612,
+        0.7735992609645349
+      ],
+      "spearman": 0.49910061103310305,
+      "spearman_bootstrap_95ci": [
+        0.3532090587653875,
+        0.6275829796769454
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260837
+    },
+    "within_task_rank_short_vs_positive_fraction": {
+      "n": 231,
+      "pearson": 0.2502735748999614,
+      "pearson_bootstrap_95ci": [
+        0.12608842600516273,
+        0.37207461840568967
+      ],
+      "spearman": 0.23576924073795677,
+      "spearman_bootstrap_95ci": [
+        0.10978295272654598,
+        0.35752094052498273
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260830
+    },
+    "within_task_rank_short_vs_mean_local_effect": {
+      "n": 231,
+      "pearson": 0.3081838264597855,
+      "pearson_bootstrap_95ci": [
+        0.18253079272688655,
+        0.4252782686835916
+      ],
+      "spearman": 0.30154811823288524,
+      "spearman_bootstrap_95ci": [
+        0.17316876743065027,
+        0.42232935163180907
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260838
+    },
+    "positive_fraction_task_model_adjusted": {
+      "formula": "positive_fraction ~ short_ack_delta + C(model) + C(task)",
+      "term": "short_ack_delta",
+      "coefficient": 0.24742050250164838,
+      "hc3_95ci": [
+        0.16420917450435243,
+        0.3306318304989443
+      ],
+      "p_value": 5.617780397706164e-09,
+      "r_squared": 0.3438336049873941,
+      "n": 231,
+      "residual_df": 220.0
+    },
+    "any_positive_task_model_adjusted": {
+      "formula": "any_positive ~ short_ack_delta + C(model) + C(task)",
+      "term": "short_ack_delta",
+      "coefficient": 2.055288889086276,
+      "odds_ratio": 7.809093508694263,
+      "hc3_odds_ratio_95ci": [
+        3.4204890887543664,
+        17.828427410577874
+      ],
+      "p_value": 1.0619918670420677e-06,
+      "n": 231,
+      "residual_df": 220.0
+    },
+    "positive_fraction_cell_adjusted": {
+      "formula": "positive_fraction ~ short_ack_delta + C(cell)",
+      "term": "short_ack_delta",
+      "coefficient": 0.2572520125826822,
+      "hc3_95ci": [
+        0.16464768930019935,
+        0.34985633586516507
+      ],
+      "p_value": 5.188672331483155e-08,
+      "r_squared": 0.4203577997253243,
+      "n": 231,
+      "residual_df": 200.0
+    },
+    "any_positive_cell_adjusted": {
+      "formula": "any_positive ~ short_ack_delta + C(cell)",
+      "term": "short_ack_delta",
+      "coefficient": 2.5791181061877153,
+      "odds_ratio": 13.185504815616525,
+      "hc3_odds_ratio_95ci": [
+        4.508058055646704,
+        38.56594903982571
+      ],
+      "p_value": 2.4775822632149714e-06,
+      "n": 231,
+      "residual_df": 200.0
+    }
+  },
+  "rq1_rq3_selected_trajectory": {
+    "degradation_vs_positive_fraction": {
+      "n": 237,
+      "pearson": -0.4641804092313617,
+      "pearson_bootstrap_95ci": [
+        -0.571241204687751,
+        -0.3499875527317358
+      ],
+      "spearman": -0.48448780567772226,
+      "spearman_bootstrap_95ci": [
+        -0.5774586215892124,
+        -0.3815493452966282
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260831
+    },
+    "degradation_vs_any_positive": {
+      "n": 237,
+      "pearson": -0.44420688489981164,
+      "pearson_bootstrap_95ci": [
+        -0.5285436096417248,
+        -0.351641237034518
+      ],
+      "spearman": -0.4396833730451685,
+      "spearman_bootstrap_95ci": [
+        -0.5196912789065604,
+        -0.3507038215073709
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260832
+    },
+    "degradation_vs_mean_local_effect": {
+      "n": 237,
+      "pearson": 0.337816362325413,
+      "pearson_bootstrap_95ci": [
+        0.2790491093695742,
+        0.39837232252800103
+      ],
+      "spearman": 0.25696670273469985,
+      "spearman_bootstrap_95ci": [
+        0.130639512453405,
+        0.37334221127786293
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260833
+    },
+    "degradation_vs_n_positive": {
+      "n": 237,
+      "pearson": -0.5829370538241555,
+      "pearson_bootstrap_95ci": [
+        -0.6734297959036921,
+        -0.4841613019441979
+      ],
+      "spearman": -0.5804701151582107,
+      "spearman_bootstrap_95ci": [
+        -0.6639604824849468,
+        -0.4877233481943614
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260839
+    },
+    "degradation_vs_max_positive_delta": {
+      "n": 151,
+      "pearson": 0.9800740444317885,
+      "pearson_bootstrap_95ci": [
+        0.9689752588391473,
+        0.9891072068903439
+      ],
+      "spearman": 0.8898352142215119,
+      "spearman_bootstrap_95ci": [
+        0.8215419512869605,
+        0.9380789215523043
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260840
+    },
+    "continuous_within_task_rank_degradation_vs_positive_fraction": {
+      "n": 80,
+      "pearson": 0.019934129529311034,
+      "pearson_bootstrap_95ci": [
+        -0.1962403768748186,
+        0.24123511817703494
+      ],
+      "spearman": 0.02271020413618918,
+      "spearman_bootstrap_95ci": [
+        -0.20112325618949237,
+        0.24525216215413323
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260834
+    },
+    "positive_fraction_task_model_adjusted": {
+      "formula": "positive_fraction ~ degradation + C(model) + C(task)",
+      "term": "degradation",
+      "coefficient": 0.19292407933510725,
+      "hc3_95ci": [
+        -0.6682180771296077,
+        1.054066235799822
+      ],
+      "p_value": 0.6605918335271597,
+      "r_squared": 0.25910937332683914,
+      "n": 237,
+      "residual_df": 226.0
+    },
+    "mean_local_effect_task_model_adjusted": {
+      "formula": "mean_delta ~ degradation + C(model) + C(task)",
+      "term": "degradation",
+      "coefficient": 0.10078785548956583,
+      "hc3_95ci": [
+        -0.14056825449591853,
+        0.3421439654750502
+      ],
+      "p_value": 0.41309399380418754,
+      "r_squared": 0.18900470486765264,
+      "n": 237,
+      "residual_df": 226.0
+    },
+    "max_positive_delta_task_model_adjusted": {
+      "formula": "max_positive_delta ~ degradation + C(model) + C(task)",
+      "term": "degradation",
+      "coefficient": 0.08135401572057642,
+      "hc3_95ci": [
+        -0.2724362721474138,
+        0.43514430358856665
+      ],
+      "p_value": 0.6522105539117555,
+      "r_squared": 0.977826483033677,
+      "n": 151,
+      "residual_df": 140.0
+    },
+    "any_positive_task_model_adjusted": {
+      "formula": "any_positive ~ degradation + C(model) + C(task)",
+      "term": "degradation",
+      "coefficient": -1.4914150311858263,
+      "odds_ratio": 0.22505397173035746,
+      "hc3_odds_ratio_95ci": [
+        3.491480910736748e-05,
+        1450.6535045302833
+      ],
+      "p_value": 0.7389350346796302,
+      "n": 237,
+      "residual_df": 226.0
+    }
+  },
+  "task_stratified_selected_trajectory": {
+    "actions": {
+      "selected_trajectories": 40,
+      "short_ack_matched": 40,
+      "degradation_unique_values": 1,
+      "short_vs_positive_fraction": {
+        "n": 40,
+        "pearson": 0.31894999623365106,
+        "pearson_bootstrap_95ci": [
+          0.1558444886740978,
+          0.4752749007631856
+        ],
+        "spearman": 0.3485353239174668,
+        "spearman_bootstrap_95ci": [
+          0.13456574936296484,
+          0.524063690313494
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260920
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 40,
+        "status": "INSUFFICIENT_VARIATION"
+      }
+    },
+    "code": {
+      "selected_trajectories": 37,
+      "short_ack_matched": 36,
+      "degradation_unique_values": 1,
+      "short_vs_positive_fraction": {
+        "n": 36,
+        "pearson": 0.20931474310623435,
+        "pearson_bootstrap_95ci": [
+          -0.12466759012647341,
+          0.5274376381071723
+        ],
+        "spearman": 0.2639149223536782,
+        "spearman_bootstrap_95ci": [
+          -0.06269565240969523,
+          0.5810197226969994
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260921
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 37,
+        "status": "INSUFFICIENT_VARIATION"
+      }
+    },
+    "data2text": {
+      "selected_trajectories": 40,
+      "short_ack_matched": 40,
+      "degradation_unique_values": 40,
+      "short_vs_positive_fraction": {
+        "n": 40,
+        "pearson": -0.10305469603005343,
+        "pearson_bootstrap_95ci": [
+          -0.3900690893621681,
+          0.20471781732270317
+        ],
+        "spearman": -0.07559258689141629,
+        "spearman_bootstrap_95ci": [
+          -0.39130280725895494,
+          0.24059121878910725
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260922
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 40,
+        "pearson": 0.11182119907526389,
+        "pearson_bootstrap_95ci": [
+          -0.15689836576167074,
+          0.3561927135184723
+        ],
+        "spearman": 0.08431845639456598,
+        "spearman_bootstrap_95ci": [
+          -0.20081866708477558,
+          0.3636775698714772
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20261022
+      }
+    },
+    "database": {
+      "selected_trajectories": 40,
+      "short_ack_matched": 38,
+      "degradation_unique_values": 1,
+      "short_vs_positive_fraction": {
+        "n": 38,
+        "pearson": 0.5065451979569064,
+        "pearson_bootstrap_95ci": [
+          0.24157328694718166,
+          0.7271001002183055
+        ],
+        "spearman": 0.46812283804556054,
+        "spearman_bootstrap_95ci": [
+          0.16514025239635866,
+          0.7174111503538938
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260923
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 40,
+        "status": "INSUFFICIENT_VARIATION"
+      }
+    },
+    "math": {
+      "selected_trajectories": 40,
+      "short_ack_matched": 37,
+      "degradation_unique_values": 1,
+      "short_vs_positive_fraction": {
+        "n": 37,
+        "pearson": 0.6401429790672142,
+        "pearson_bootstrap_95ci": [
+          0.4550642117187059,
+          0.797092998722213
+        ],
+        "spearman": 0.6528022573677816,
+        "spearman_bootstrap_95ci": [
+          0.41244521262708894,
+          0.8181398147001955
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260924
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 40,
+        "status": "INSUFFICIENT_VARIATION"
+      }
+    },
+    "summary": {
+      "selected_trajectories": 40,
+      "short_ack_matched": 40,
+      "degradation_unique_values": 40,
+      "short_vs_positive_fraction": {
+        "n": 40,
+        "pearson": -0.07334546690301122,
+        "pearson_bootstrap_95ci": [
+          -0.35769093557018333,
+          0.27156543394357974
+        ],
+        "spearman": 0.02099452398049633,
+        "spearman_bootstrap_95ci": [
+          -0.29043780612585646,
+          0.3439119518003985
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20260925
+      },
+      "degradation_vs_positive_fraction": {
+        "n": 40,
+        "pearson": -0.1378845464723945,
+        "pearson_bootstrap_95ci": [
+          -0.40448433247356996,
+          0.18231387533444698
+        ],
+        "spearman": -0.04425042174906836,
+        "spearman_bootstrap_95ci": [
+          -0.3722343431885586,
+          0.3020288041119548
+        ],
+        "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 20261025
+      }
+    }
+  },
+  "cross_level_ordering": {
+    "rq1_rq2_top_third_overlap": {
+      "top_n": 10,
+      "overlap_count": 7,
+      "overlap_fraction_of_top_third": 0.7,
+      "jaccard": 0.5384615384615384,
+      "overlap_cells": [
+        "Qwen/Qwen3-14B|actions",
+        "Qwen/Qwen3-14B|database",
+        "deepseek-ai/DeepSeek-V3.2|actions",
+        "gpt-5.6-luna|actions",
+        "gpt-5.6-luna|database",
+        "grok-4.5|actions",
+        "grok-4.5|database"
+      ]
+    },
+    "rq2_rq3_any_positive_top_third_overlap": {
+      "top_n": 10,
+      "overlap_count": 0,
+      "overlap_fraction_of_top_third": 0.0,
+      "jaccard": 0.0,
+      "overlap_cells": []
+    },
+    "rq2_rq3_positive_turn_fraction_top_third_overlap": {
+      "top_n": 10,
+      "overlap_count": 2,
+      "overlap_fraction_of_top_third": 0.2,
+      "jaccard": 0.1111111111111111,
+      "overlap_cells": [
+        "Qwen/Qwen3-14B|math",
+        "grok-4.5|data2text"
+      ]
+    },
+    "rq1_rq3_any_positive_cell_correlation": {
+      "n": 30,
+      "pearson": -0.6524376095126363,
+      "pearson_bootstrap_95ci": [
+        -0.8116165240913704,
+        -0.43955667229735396
+      ],
+      "spearman": -0.6250205768249469,
+      "spearman_bootstrap_95ci": [
+        -0.7926134693615728,
+        -0.34160458705043395
+      ],
+      "bootstrap_unit": "row (cell or trajectory, according to analysis table)",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260835
+    },
+    "largest_rq1_rq2_rank_mismatches": [
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "task": "database",
+        "degradation_full_sharded": 0.4375,
+        "rq2_mean_short_delta": -0.325,
+        "absolute_rank_gap": 28.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "task": "math",
+        "degradation_full_sharded": -0.0097087378640776,
+        "rq2_mean_short_delta": 0.06,
+        "absolute_rank_gap": 16.0
+      },
+      {
+        "model": "gpt-4o",
+        "task": "code",
+        "degradation_full_sharded": 0.1818181818181818,
+        "rq2_mean_short_delta": -0.1,
+        "absolute_rank_gap": 12.5
+      },
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "task": "code",
+        "degradation_full_sharded": 0.1566265060240964,
+        "rq2_mean_short_delta": -0.4146341463414634,
+        "absolute_rank_gap": 12.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "task": "summary",
+        "degradation_full_sharded": 0.0173518938129395,
+        "rq2_mean_short_delta": 0.015932225244509088,
+        "absolute_rank_gap": 10.0
+      }
+    ],
+    "largest_rq2_rq3_rank_mismatches": [
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "task": "actions",
+        "rq2_mean_short_delta": 0.23076923076923078,
+        "any_positive_trajectory_rate": 0.25,
+        "rq2_any_positive_absolute_rank_gap": 26.5
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "task": "actions",
+        "rq2_mean_short_delta": 0.21153846153846154,
+        "any_positive_trajectory_rate": 0.25,
+        "rq2_any_positive_absolute_rank_gap": 25.5
+      },
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "task": "data2text",
+        "rq2_mean_short_delta": -0.26802108563446614,
+        "any_positive_trajectory_rate": 1.0,
+        "rq2_any_positive_absolute_rank_gap": 25.0
+      },
+      {
+        "model": "grok-4.5",
+        "task": "database",
+        "rq2_mean_short_delta": 0.20618556701030927,
+        "any_positive_trajectory_rate": 0.25,
+        "rq2_any_positive_absolute_rank_gap": 24.5
+      },
+      {
+        "model": "grok-4.5",
+        "task": "actions",
+        "rq2_mean_short_delta": 0.16483516483516483,
+        "any_positive_trajectory_rate": 0.25,
+        "rq2_any_positive_absolute_rank_gap": 23.5
+      }
+    ]
+  },
+  "design_caveats": [
+    "RQ3 covers a stratified selected degraded subset, not the full RQ2 population.",
+    "Each RQ3 model-task cell contains at most eight trajectories; Grok Code contains five.",
+    "Binary-task selection fixes trajectory degradation at 1.0, leaving within-task severity variation only in Data-to-Text and Summary.",
+    "Six selected trajectories have no completed SHORT_ACK counterpart and remain missing in same-trajectory RQ2 comparisons."
+  ]
+}

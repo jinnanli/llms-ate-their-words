@@ -1,0 +1,7 @@
+SPDX-License-Identifier: Apache-2.0
+Source: https://raw.githubusercontent.com/ShishirPatil/gorilla/c5ffaf09fd3556e88aed947a3aefde173ca31611/berkeley-function-call-leaderboard/bfcl/model_handler/constant.py
+Attribution: BFCL/Gorilla contributors.
+Adaptation distributed by Microsoft Lost in Conversation; retain root MIT notice for Microsoft additions.
+Changes: Removed multiturn completion paragraph; changed functions placeholder and spacing.
+Full license: docs/licenses/bfcl-LICENSE.txt
+This sidecar is attribution metadata, not model input.

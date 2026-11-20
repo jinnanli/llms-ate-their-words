@@ -1,0 +1,7 @@
+SPDX-License-Identifier: Apache-2.0
+Source: https://raw.githubusercontent.com/salesforce/summary-of-a-haystack/837ce0a96d05fd21ea3360c44d83d39fa743c70a/prompts/summarization_conv.txt
+Attribution: Salesforce Summary of a Haystack contributors.
+Adaptation distributed by Microsoft Lost in Conversation; retain root MIT notice for Microsoft additions.
+Changes: Template placeholders changed and participant wording simplified by the Microsoft adaptation.
+Full license: docs/licenses/summhay-LICENSE.txt
+This sidecar is attribution metadata, not model input.

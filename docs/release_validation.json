@@ -1,0 +1,158 @@
+{
+  "python": "3.11.4",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scipy": "1.17.1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2",
+    "tabulate": "0.10.0"
+  },
+  "commands": [
+    {
+      "command": "python code/validate_package.py",
+      "exit_code": 0,
+      "stdout": "PACKAGE_VALIDATION: PASS\nRQ1 cells=30; RQ2 pairs=2973; RQ3 trajectories=237, branches=1440; RQ4 held-out trajectories=118, branches=603\n",
+      "stderr": ""
+    },
+    {
+      "command": "python code/review/test_replay.py",
+      "exit_code": 0,
+      "stdout": "INPUT_QA: PASS; 1 rows; no API calls\nINPUT_QA: PASS; 1 rows; no API calls\nREPLAY_CONSTRUCTION_TESTS: PASS (7 synthetic cases; zero API calls)\n",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.029s\n\nOK\n"
+    },
+    {
+      "command": "python code/review/run_null_replay.py --help",
+      "exit_code": 0,
+      "stdout": "usage: run_null_replay.py [-h] --manifest MANIFEST --mode {p0a,p0b}\n                          [--dataset DATASET] --output-dir OUTPUT_DIR [--live]\n\noptions:\n  -h, --help            show this help message and exit\n  --manifest MANIFEST\n  --mode {p0a,p0b}\n  --dataset DATASET\n  --output-dir OUTPUT_DIR\n  --live                Actually call models; otherwise input-only QA\n",
+      "stderr": ""
+    },
+    {
+      "command": "python code/statistics/analyze_phase_l1.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"population\": {\n    \"trajectories\": 237,\n    \"valid_branches\": 1440,\n    \"planned_branches\": 1472,\n    \"missing_branches\": 32,\n    \"incomplete_trajectories\": 16\n  },\n  \"positive_turn_topology\": {\n    \"primary\": {\n      \"zero\": {\n        \"count\": 86,\n        \"proportion\": 0.3628691983122363\n      },\n      \"one\": {\n        \"count\": 51,\n        \"proportion\": 0.21518987341772153\n      },\n      \"two\": {\n        \"count\": 34,\n        \"proportion\": 0.14345991561181434\n      },\n      \"three_or_more\": {\n        \"count\": 66,\n        \"proportion\": 0.27848101265822783\n      }\n    },\n    \"robustness_epsilon_0_01\": {\n      \"zero\": {\n        \"count\": 89,\n        \"proportion\": 0.3755274261603376\n      },\n      \"one\": {\n        \"count\": 53,\n        \"proportion\": 0.22362869198312235\n      },\n      \"two\": {\n        \"count\": 34,\n        \"proportion\": 0.14345991561181434\n      },\n      \"three_or_more\": {\n        \"count\": 61,\n        \"proportion\": 0.25738396624472576\n      }\n    },\n    \"any_positive\": {\n      \"count\": 151,\n      \"proportion\": 0.6371308016877637\n    },\n    \"multiple_positive\": {\n      \"count\": 100,\n      \"proportion\": 0.4219409282700422\n    },\n    \"multiple_conditional_on_any_positive\": {\n      \"count\": 100,\n      \"denominator\": 151,\n      \"proportion\": 0.6622516556291391\n    },\n    \"robust_any_positive\": {\n      \"count\": 148,\n      \"proportion\": 0.6244725738396625\n    },\n    \"robust_multiple_positive\": {\n      \"count\": 95,\n      \"proportion\": 0.4008438818565401\n    },\n    \"robust_multiple_conditional_on_any_positive\": {\n      \"count\": 95,\n      \"denominator\": 148,\n      \"proportion\": 0.6418918918918919\n    }\n  },\n  \"concentration\": {\n    \"defined_trajectories\": 155,\n    \"q1\": 0.3333333333333333,\n    \"median\": 0.5,\n    \"q3\": 1.0,\n    \"fraction_at_least_0_5\": 0.5225806451612903,\n    \"count_at_least_0_5\": 81,\n    \"fraction_at_least_0_75\": 0.2838709677419355,\n    \"count_at_least_0_75\": 44,\n    \"fraction_equal_1\": 0.2838709677419355,\n    \"count_equal_1\": 44\n  },\n  \"sign_topology\": {\n    \"primary\": {\n      \"insensitive\": {\n        \"count\": 82,\n        \"proportion\": 0.3459915611814346\n      },\n      \"positive_only\": {\n        \"count\": 100,\n        \"proportion\": 0.4219409282700422\n      },\n      \"negative_only\": {\n        \"count\": 4,\n        \"proportion\": 0.016877637130801686\n      },\n      \"mixed\": {\n        \"count\": 51,\n        \"proportion\": 0.21518987341772153\n      }\n    },\n    \"robustness_epsilon_0_01\": {\n      \"insensitive\": {\n        \"count\": 82,\n        \"proportion\": 0.3459915611814346\n      },\n      \"positive_only\": {\n        \"count\": 107,\n        \"proportion\": 0.45147679324894513\n      },\n      \"negative_only\": {\n        \"count\": 7,\n        \"proportion\": 0.029535864978902954\n      },\n      \"mixed\": {\n        \"count\": 41,\n        \"proportion\": 0.1729957805907173\n      }\n    },\n    \"continuous_tasks_primary\": {\n      \"insensitive\": {\n        \"count\": 1,\n        \"proportion\": 0.0125\n      },\n      \"positive_only\": {\n        \"count\": 24,\n        \"proportion\": 0.3\n      },\n      \"negative_only\": {\n        \"count\": 4,\n        \"proportion\": 0.05\n      },\n      \"mixed\": {\n        \"count\": 51,\n        \"proportion\": 0.6375\n      }\n    },\n    \"continuous_tasks_robustness_epsilon_0_01\": {\n      \"insensitive\": {\n        \"count\": 1,\n        \"proportion\": 0.0125\n      },\n      \"positive_only\": {\n        \"count\": 31,\n        \"proportion\": 0.3875\n      },\n      \"negative_only\": {\n        \"count\": 7,\n        \"proportion\": 0.0875\n      },\n      \"mixed\": {\n        \"count\": 41,\n        \"proportion\": 0.5125\n      }\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python code/statistics/analyze_phase_l3.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"population\": {\n    \"paired_trajectories\": 2973,\n    \"unique_trajectories\": 2973,\n    \"binary_trajectories\": 1924,\n    \"continuous_trajectories\": 1049,\n    \"model_task_cells\": 30,\n    \"conditioned_on_valid_short_ack_pair\": true\n  },\n  \"overall_scores\": {\n    \"trajectory_weighted_sharded_mean\": 0.5416633647341844,\n    \"trajectory_weighted_short_ack_mean\": 0.5745899516096175,\n    \"trajectory_weighted_mean_delta\": 0.032926586875433116,\n    \"cell_equal_mean_delta\": 0.026949476208342663\n  },\n  \"binary_overall\": {\n    \"paired_n\": 1924,\n    \"baseline_failure_n\": 595,\n    \"baseline_success_n\": 1329,\n    \"n_00\": 292,\n    \"n_01\": 303,\n    \"n_10\": 195,\n    \"n_11\": 1134,\n    \"p_00\": 0.15176715176715178,\n    \"p_01\": 0.15748440748440748,\n    \"p_10\": 0.10135135135135136,\n    \"p_11\": 0.5893970893970893,\n    \"rescue_rate_given_failure\": 0.5092436974789916,\n    \"harm_rate_given_success\": 0.14672686230248308,\n    \"retention_rate_given_success\": 0.8532731376975169,\n    \"gross_change_rate\": 0.2588357588357588,\n    \"beneficial_change_rate\": 0.15748440748440748,\n    \"harmful_change_rate\": 0.10135135135135136,\n    \"net_delta\": 0.056133056133056136,\n    \"baseline_mean\": 0.6907484407484408,\n    \"short_ack_mean\": 0.7468814968814969\n  },\n  \"continuous_by_task\": {\n    \"data2text\": {\n      \"paired_n\": 593,\n      \"baseline_mean\": 0.322000955889571,\n      \"short_ack_mean\": 0.313454135321054,\n      \"mean_delta\": -0.008546820568517072,\n      \"median_delta\": 0.0068161518811032,\n      \"q10\": -0.3048295119729191,\n      \"q25\": -0.1245964137945876,\n      \"q75\": 0.1230482261005647,\n      \"q90\": 0.23034791641213692,\n      \"positive_n_eps01\": 288,\n      \"nochange_n_eps01\": 48,\n      \"negative_n_eps01\": 257,\n      \"positive_rate_eps01\": 0.4856661045531197,\n      \"nochange_rate_eps01\": 0.08094435075885328,\n      \"negative_rate_eps01\": 0.433389544688027,\n      \"changed_rate_eps01\": 0.9190556492411467,\n      \"mean_positive_delta\": 0.15277289479643807,\n      \"mean_negative_delta\": -0.19101447038357192\n    },\n    \"summary\": {\n      \"paired_n\": 456,\n      \"baseline_mean\": 0.19828643971976864,\n      \"short_ack_mean\": 0.18723163133773638,\n      \"mean_delta\": -0.011054808382032275,\n      \"median_delta\": 0.00138227513227505,\n      \"q10\": -0.18837667887667886,\n      \"q25\": -0.0703741199276913,\n      \"q75\": 0.06392882479838999,\n      \"q90\": 0.12314074814074816,\n      \"positive_n_eps01\": 205,\n      \"nochange_n_eps01\": 55,\n      \"negative_n_eps01\": 196,\n      \"positive_rate_eps01\": 0.44956140350877194,\n      \"nochange_rate_eps01\": 0.1206140350877193,\n      \"negative_rate_eps01\": 0.4298245614035088,\n      \"changed_rate_eps01\": 0.8793859649122807,\n      \"mean_positive_delta\": 0.08563431918050175,\n      \"mean_negative_delta\": -0.1155286201617103\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python code/plotting/plot_figure1_framework.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\n"
+    },
+    {
+      "command": "python code/plotting/plot_refined_figure2.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\n"
+    },
+    {
+      "command": "python code/plotting/plot_refined_figures_3_5.py",
+      "exit_code": 0,
+      "stdout": "Rendered refined Figures 3--5 to <REPOSITORY>\\results\\reproduced\\figures\n",
+      "stderr": "findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\nfindfont: Failed to find font weight semibold for DejaVu Sans, now using 700.\n"
+    },
+    {
+      "command": "python code/review/reproduce_review.py",
+      "exit_code": 0,
+      "stdout": "REVIEW_REPRODUCTION: PASS (frozen numeric checks, tolerance 1e-12 absolute)\n",
+      "stderr": ""
+    }
+  ],
+  "numeric_reference_checks": [
+    {
+      "analysis": "phase_l1",
+      "numeric_values": 208,
+      "passed": true
+    },
+    {
+      "analysis": "phase_l3",
+      "numeric_values": 225,
+      "passed": true
+    }
+  ],
+  "syntax_checked": [
+    "code/release_checks.py",
+    "code/validate_package.py",
+    "code/evaluation/model_openai.py",
+    "code/evaluation/run_simulations.py",
+    "code/evaluation/simulator_full.py",
+    "code/evaluation/simulator_sharded.py",
+    "code/evaluation/system_agent.py",
+    "code/evaluation/task_base.py",
+    "code/evaluation/user_agent.py",
+    "code/evaluation/utils.py",
+    "code/evaluation/utils_log.py",
+    "code/evaluation/tasks/tasks.py",
+    "code/evaluation/tasks/__init__.py",
+    "code/evaluation/tasks/actions/eval_bfcl.py",
+    "code/evaluation/tasks/actions/task_actions.py",
+    "code/evaluation/tasks/actions/__init__.py",
+    "code/evaluation/tasks/code/eval_code.py",
+    "code/evaluation/tasks/code/task_code.py",
+    "code/evaluation/tasks/code/__init__.py",
+    "code/evaluation/tasks/data2text/task_data2text.py",
+    "code/evaluation/tasks/data2text/utils_totto.py",
+    "code/evaluation/tasks/data2text/__init__.py",
+    "code/evaluation/tasks/database/eval_spider_exec.py",
+    "code/evaluation/tasks/database/eval_spider_parse.py",
+    "code/evaluation/tasks/database/task_database.py",
+    "code/evaluation/tasks/database/__init__.py",
+    "code/evaluation/tasks/math/task_math.py",
+    "code/evaluation/tasks/math/__init__.py",
+    "code/evaluation/tasks/summary/eval_summhay.py",
+    "code/evaluation/tasks/summary/task_summary.py",
+    "code/evaluation/tasks/summary/__init__.py",
+    "code/internal_analysis/align_state_propagation_restoration_v3.py",
+    "code/internal_analysis/analyze_formal_heldout_replication.py",
+    "code/internal_analysis/analyze_open_model_results_20260820.py",
+    "code/internal_analysis/analyze_qwen14b_state_restoration_v3.py",
+    "code/internal_analysis/analyze_state_restoration_replication_v3.py",
+    "code/internal_analysis/build_formal_heldout_118.py",
+    "code/internal_analysis/build_formal_heldout_s2_population.py",
+    "code/internal_analysis/build_open_model_extension_v3_freeze.py",
+    "code/internal_analysis/build_qwen14b_full_s3_manifest.py",
+    "code/internal_analysis/build_qwen14b_state_restoration_pairs.py",
+    "code/internal_analysis/build_state_propagation_manifest.py",
+    "code/internal_analysis/freeze_open_model_results_20260820.py",
+    "code/internal_analysis/materialize_formal_heldout_aggregate.py",
+    "code/internal_analysis/qwen14b_attention_probe.py",
+    "code/internal_analysis/run_qwen14b_attention_knockout.py",
+    "code/internal_analysis/run_qwen14b_attention_knockout_full.py",
+    "code/internal_analysis/run_qwen14b_counterfactual_attention.py",
+    "code/internal_analysis/run_qwen14b_formal_heldout_behavior.py",
+    "code/internal_analysis/run_qwen14b_large_s2.py",
+    "code/internal_analysis/run_qwen14b_native_s2.py",
+    "code/internal_analysis/run_qwen14b_reproduction.py",
+    "code/internal_analysis/run_qwen14b_state_propagation.py",
+    "code/internal_analysis/run_qwen14b_state_restoration.py",
+    "code/internal_analysis/validate_formal_heldout_behavior.py",
+    "code/internal_analysis/validate_qwen14b_state_restoration_v3.py",
+    "code/interventions/analyze_phase_l5_restoration.py",
+    "code/interventions/p5_counterfactual_runner.py",
+    "code/interventions/prepare_phase_l5_restoration.py",
+    "code/interventions/run_phase_l5_restoration.py",
+    "code/plotting/plot_figure1_framework.py",
+    "code/plotting/plot_refined_figure2.py",
+    "code/plotting/plot_refined_figures_3_5.py",
+    "code/review/p0_common.py",
+    "code/review/reproduce_review.py",
+    "code/review/run_null_replay.py",
+    "code/review/test_code_capture.py",
+    "code/review/test_replay.py",
+    "code/statistics/analyze_phase_l1.py",
+    "code/statistics/analyze_phase_l2.py",
+    "code/statistics/analyze_phase_l3.py",
+    "code/statistics/build_local_analysis_baseline.py",
+    "code/turn_surgery/p5_analyze.py",
+    "code/turn_surgery/p5_build_manifests.py"
+  ],
+  "api_calls": 0,
+  "gpu_runs": 0,
+  "passed": true
+}

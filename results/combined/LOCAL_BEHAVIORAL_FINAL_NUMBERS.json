@@ -1,0 +1,400 @@
+{
+  "freeze_version": "local_behavioral_final_v1",
+  "freeze_date": "2026-08-19",
+  "status": "PASS",
+  "blocking_discrepancies": [],
+  "rounding_notes": {
+    "l3_binary_gross_change_percent": {
+      "exact": 25.883575883575885,
+      "paper_rounding": 25.88
+    },
+    "l3_binary_net_gain_percentage_points": {
+      "exact": 5.613305613305613,
+      "paper_rounding": 5.61
+    },
+    "l5_primary_influential_percent": {
+      "exact": 47.706422018348626,
+      "paper_rounding": 47.7
+    },
+    "l5_primary_control_percent": {
+      "exact": 66.05504587155964,
+      "paper_rounding": 66.1
+    },
+    "l5_primary_difference_percentage_points": {
+      "exact": -18.348623853211013,
+      "paper_rounding": -18.3
+    }
+  },
+  "canonical_sources": {
+    "rq1": [
+      "P5_MODEL_PANEL_RESULTS.csv",
+      "table1_five_model_main_results.csv",
+      "P5_FINAL_STATISTICAL_RESULTS.json"
+    ],
+    "rq2": [
+      "P5_NEUTRAL_ACK_RESULTS.csv",
+      "figures/final_drafts/data/neutral_ack_full_breakdown.csv",
+      "P7R_LENGTH_CONTROL_STATISTICS.json",
+      "analysis/local_behavioral_v1/rq2_paired_trajectory.csv"
+    ],
+    "rq3": [
+      "P5_TURN_SURGERY_RESULTS.csv",
+      "P7R_SURGERY_CLUSTERED_STATS.json",
+      "TURN_SURGERY_ESTIMAND_COMPARISON.csv",
+      "analysis/local_behavioral_v1/rq3_turn_surgery_branches.csv"
+    ],
+    "phase_l1": [
+      "analysis/local_behavioral_v1/phase_l1/phase_l1_results.json",
+      "analysis/local_behavioral_v1/phase_l1/trajectory_sensitivity_summary.csv",
+      "analysis/local_behavioral_v1/phase_l1/position_summary.csv"
+    ],
+    "phase_l2": [
+      "analysis/local_behavioral_v1/phase_l2/phase_l2_results.json",
+      "analysis/local_behavioral_v1/phase_l2/rq1_rq2_cell_relationship.csv",
+      "analysis/local_behavioral_v1/phase_l2/rq2_rq3_cell_relationship.csv",
+      "analysis/local_behavioral_v1/phase_l2/cross_rq_trajectory_summary.csv"
+    ],
+    "phase_l3": [
+      "analysis/local_behavioral_v1/phase_l3/phase_l3_results.json",
+      "analysis/local_behavioral_v1/phase_l3/rq2_binary_transitions.csv",
+      "analysis/local_behavioral_v1/phase_l3/rq2_continuous_distribution.csv",
+      "analysis/local_behavioral_v1/phase_l3/rq2_cell_effect_structure.csv"
+    ],
+    "phase_l4": [
+      "analysis/local_behavioral_v1/phase_l4_pilot/PHASE_L4_PILOT_REPORT.md"
+    ],
+    "phase_l5": [
+      "analysis/local_behavioral_v1/phase_l5_restoration/phase_l5_results.json",
+      "analysis/local_behavioral_v1/phase_l5_restoration/restoration_manifest.csv",
+      "analysis/local_behavioral_v1/phase_l5_restoration/restoration_results.csv"
+    ]
+  },
+  "existing_paper_anchors": {
+    "rq1_model_task_macro": {
+      "benchmark_instances": 627,
+      "models": 5,
+      "tasks": 6,
+      "model_results": [
+        {
+          "model": "GPT-5.6 Luna",
+          "full": 0.7213194338137731,
+          "concat": 0.7043705229437861,
+          "sharded": 0.5846827198546208,
+          "full_minus_sharded": 0.13663671395915228,
+          "ci95": [0.10461384433276724, 0.1693893416489111],
+          "paired_n": 621
+        },
+        {
+          "model": "Grok-4.5",
+          "full": 0.7943331833784285,
+          "concat": 0.7846752979473521,
+          "sharded": 0.6301520796315612,
+          "full_minus_sharded": 0.1641811037468673,
+          "ci95": [0.1352784254779402, 0.19320367905652572],
+          "paired_n": 590
+        },
+        {
+          "model": "GPT-4o",
+          "full": 0.7494354639091526,
+          "concat": 0.7357166482824327,
+          "sharded": 0.5565621201779155,
+          "full_minus_sharded": 0.1928733437312371,
+          "ci95": [0.16295812745945484, 0.22382396763596987],
+          "paired_n": 621
+        },
+        {
+          "model": "DeepSeek-V3.2",
+          "full": 0.7427827894487792,
+          "concat": 0.7466718097222956,
+          "sharded": 0.5313967002448695,
+          "full_minus_sharded": 0.2113860892039097,
+          "ci95": [0.17715809570414612, 0.2450511640980081],
+          "paired_n": 548
+        },
+        {
+          "model": "Qwen3-14B",
+          "full": 0.6840856779507889,
+          "concat": 0.6283327835121971,
+          "sharded": 0.46023350522320833,
+          "full_minus_sharded": 0.22385217272758054,
+          "ci95": [0.1892274141752247, 0.2590990661840553],
+          "paired_n": 609
+        }
+      ]
+    },
+    "rq2_full_short_ack": {
+      "paired_n": 2973,
+      "aggregation": "equal mean across 30 model-task cell means",
+      "sharded_mean": 0.550300,
+      "short_ack_mean": 0.577249,
+      "effect": 0.026949476208342663,
+      "ci95": [0.012586446888305531, 0.04144522292040448]
+    },
+    "rq2_length_control": {
+      "primary_n": 264,
+      "short_minus_sharded": {
+        "estimate": 0.06940202330079084,
+        "ci95": [0.023899251318036996, 0.11502917814414465]
+      },
+      "matched_minus_sharded": {
+        "estimate": 0.06793130623514171,
+        "ci95": [0.026824197476140024, 0.1095305182714711]
+      },
+      "matched_minus_short": {
+        "estimate": -0.0014707170656491429,
+        "ci95": [-0.03854699355946992, 0.03525878386489532]
+      }
+    },
+    "rq3_turn_surgery": {
+      "sampled_trajectories": 237,
+      "planned_branches": 1472,
+      "valid_branches": 1440,
+      "missing_branches": 32,
+      "branch_counts_exact_sign": {
+        "positive": 395,
+        "zero": 893,
+        "negative": 152
+      },
+      "trajectory_equal": {
+        "mean_effect": 0.14767887396574952,
+        "mean_effect_ci95": [0.116395274775288, 0.180026542137075],
+        "positive_fraction": 0.31548623668876835,
+        "positive_fraction_ci95": [0.275015069318867, 0.357571830419932],
+        "zero_fraction": 0.5764583751925524,
+        "zero_fraction_ci95": [0.523399010448061, 0.627598955193892],
+        "negative_fraction": 0.10805538811867926,
+        "negative_fraction_ci95": [0.0799406017681334, 0.137653665193222]
+      },
+      "branch_weighted": {
+        "mean_effect": 0.10980373395907353,
+        "mean_effect_ci95": [0.0765485660769182, 0.150569922462085]
+      },
+      "any_positive": {
+        "numerator": 151,
+        "denominator": 237,
+        "proportion": 0.6371308016877637,
+        "ci95": [0.5738396624472574, 0.70042194092827]
+      },
+      "binary_fail_to_success": {
+        "numerator": 76,
+        "binary_eligible_denominator": 157,
+        "proportion": 0.4840764331210191
+      }
+    }
+  },
+  "phase_l1": {
+    "position_and_recency": {
+      "relative_position_vs_delta_spearman": -0.139,
+      "relative_position_vs_delta_ci95": [-0.183, -0.093],
+      "positive_rate_by_tercile": {
+        "early": 0.336,
+        "middle": 0.266,
+        "late": 0.203
+      },
+      "adjusted_or_per_0_1_position": 0.876,
+      "adjusted_or_ci95": [0.839, 0.914],
+      "distance_to_final_vs_delta_spearman": -0.005,
+      "distance_to_final_vs_delta_ci95": [-0.126, 0.150],
+      "trajectories_with_positive_at_least_6_steps_from_final": {
+        "numerator": 57,
+        "denominator": 237
+      }
+    },
+    "multi_pivot": {
+      "primary_multiple_positive": {
+        "numerator": 100,
+        "denominator_any_positive": 151,
+        "proportion": 0.6622516556291391
+      },
+      "epsilon_0_01_multiple_positive": {
+        "numerator": 95,
+        "denominator_any_positive": 148,
+        "proportion": 0.6418918918918919
+      }
+    },
+    "mixed_sign_continuous": {
+      "primary": {
+        "numerator": 51,
+        "denominator": 80,
+        "proportion": 0.6375
+      },
+      "epsilon_0_01": {
+        "numerator": 41,
+        "denominator": 80,
+        "proportion": 0.5125
+      }
+    },
+    "concentration": {
+      "defined_n": 155,
+      "median": 0.5,
+      "iqr": [0.3333333333333333, 1.0],
+      "at_least_0_5": {
+        "numerator": 81,
+        "proportion": 0.5225806451612903
+      },
+      "at_least_0_75": {
+        "numerator": 44,
+        "proportion": 0.2838709677419355
+      }
+    }
+  },
+  "phase_l2": {
+    "rq1_rq2_cell_spearman": {
+      "estimate": 0.553,
+      "ci95": [0.150, 0.820]
+    },
+    "rq2_rq3_cell_any_positive_spearman": {
+      "estimate": -0.444,
+      "ci95": [-0.719, -0.062],
+      "interpretation": "cross-task ordering reversal; not a general negative individual-level relation"
+    },
+    "rq2_rq3_same_trajectory_short_vs_mean_local_effect": {
+      "matched_trajectories": 231,
+      "estimate": 0.357,
+      "ci95": [0.235, 0.473]
+    },
+    "rq2_rq3_same_trajectory_short_vs_positive_fraction": {
+      "matched_trajectories": 231,
+      "estimate": 0.059,
+      "ci95": [-0.067, 0.180]
+    },
+    "selected_rq3_trajectories": 237,
+    "selected_rq3_with_short_ack": 231,
+    "scope": "RQ3 relations are conditional on the stratified selected degraded sample"
+  },
+  "phase_l3": {
+    "population": {
+      "paired_total": 2973,
+      "binary": 1924,
+      "continuous": 1049
+    },
+    "binary_transitions": {
+      "n_01_rescued": 303,
+      "n_00_persistent_failure": 292,
+      "n_10_harmed": 195,
+      "n_11_persistent_success": 1134,
+      "baseline_failures": 595,
+      "rescue_rate": 0.5092436974789916,
+      "baseline_successes": 1329,
+      "harm_rate": 0.14672686230248308,
+      "gross_change_rate": 0.25883575883575885,
+      "net_gain_percentage_points": 5.613305613305613
+    },
+    "continuous_tasks": {
+      "data_to_text": {
+        "n": 593,
+        "mean_delta": -0.00855,
+        "epsilon": 0.01,
+        "positive": 288,
+        "no_change": 48,
+        "negative": 257,
+        "changed": 545,
+        "changed_rate": 0.9190556492411467
+      },
+      "summary": {
+        "n": 456,
+        "mean_delta": -0.01105,
+        "epsilon": 0.01,
+        "positive": 205,
+        "no_change": 55,
+        "negative": 196,
+        "changed": 401,
+        "changed_rate": 0.8793859649122807
+      }
+    },
+    "binary_task_examples": {
+      "actions": {
+        "baseline_failures": 187,
+        "rescued": 130,
+        "rescue_rate": 0.6951871657754011,
+        "baseline_successes": 321,
+        "harmed": 16,
+        "harm_rate": 0.04984423676012461,
+        "net_delta": 0.2244
+      },
+      "code": {
+        "baseline_failures": 110,
+        "rescued": 41,
+        "rescue_rate": 0.37272727272727274,
+        "baseline_successes": 360,
+        "harmed": 99,
+        "harm_rate": 0.275,
+        "net_delta": -0.1234
+      },
+      "database": {
+        "baseline_failures": 210,
+        "rescued": 78,
+        "rescue_rate": 0.37142857142857144,
+        "baseline_successes": 277,
+        "harmed": 53,
+        "harm_rate": 0.19133574007220217,
+        "gross_change_rate": 0.269,
+        "net_delta": 0.0513
+      }
+    }
+  },
+  "phase_l4": {
+    "gate": "STOP",
+    "paper_priority": "DROP"
+  },
+  "phase_l5": {
+    "joined_branches": 1414,
+    "manifest_rows": 340,
+    "completed_rows": 339,
+    "primary_positive_matched_sets": {
+      "n": 109,
+      "baseline_directional_opportunity_matched": true,
+      "influential_reciprocal": 52,
+      "influential_rate": 0.47706422018348627,
+      "control_reciprocal": 72,
+      "control_rate": 0.6605504587155964,
+      "difference_percentage_points": -18.348623853211013,
+      "difference_ci95_percentage_points": [-32.0, -3.3],
+      "adjusted_odds_ratio": 0.42,
+      "adjusted_odds_ratio_ci95": [0.22, 0.81]
+    },
+    "same_trajectory_positive_sets": {
+      "n": 45,
+      "baseline_directional_opportunity_matched": true,
+      "influential_reciprocal": 26,
+      "influential_rate": 0.5777777777777777,
+      "control_reciprocal": 24,
+      "control_rate": 0.5333333333333333,
+      "difference_percentage_points": 4.444444444444443,
+      "interpretation": "small subset points in the opposite direction from the aggregate primary contrast"
+    },
+    "negative_matched_sets": {
+      "n": 50,
+      "influential_rate": 0.38,
+      "control_rate": 0.24,
+      "difference_percentage_points": 14.0,
+      "difference_ci95_percentage_points": [-6.6, 34.4]
+    },
+    "continuous_magnitude_transfer": {
+      "signed_spearman": -0.014,
+      "signed_ci95": [-0.289, 0.251],
+      "absolute_spearman": 0.081,
+      "absolute_ci95": [-0.169, 0.320]
+    },
+    "retained_interpretation": "Localized influence in the original realized history does not exhibit a consistent transfer advantage when the isolated turn is restored into otherwise-neutral history; influence is configuration-dependent."
+  },
+  "paper_hierarchy": {
+    "core_main_new": [
+      "L3_BINARY_RESCUE_HARM",
+      "L3_CONTINUOUS_HIDDEN_CHURN",
+      "L1_MULTI_PIVOT",
+      "L1_EARLY_NOT_SIMPLE_RECENCY"
+    ],
+    "supporting_main_new": [
+      "L1_MIXED_SIGN_CONTINUOUS",
+      "L2_NONINTERCHANGEABLE_DIAGNOSTICS",
+      "L5_RESTORATION_CONTEXT_BOUNDARY"
+    ],
+    "drop": [
+      "L4 semantic annotation pilot",
+      "L2 correlation dump and composition-confounded pooled coefficients",
+      "L3 elaborate response-regime taxonomy",
+      "L5 standalone negative-cohort or model-task claims"
+    ]
+  }
+}

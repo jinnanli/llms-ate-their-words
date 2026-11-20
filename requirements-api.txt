@@ -1,0 +1,10 @@
+-r requirements.txt
+tqdm
+tiktoken
+openai
+python-dotenv
+GitPython
+nltk
+sqlparse
+pymongo
+sacrebleu

@@ -1,0 +1,14 @@
+panel,category,estimate,ci_low,ci_high,denominator,population,source_file,subgroup,numerator
+A,short_minus_sharded,0.06940202330079084,0.023899251318036996,0.11502917814414465,264,length_control_common_subset,figures\final_drafts\data\figure3_history_length_control.csv,,
+A,lm_minus_sharded,0.06793130623514171,0.026824197476140024,0.1095305182714711,264,length_control_common_subset,figures\final_drafts\data\figure3_history_length_control.csv,,
+A,lm_minus_short,-0.0014707170656491429,-0.03854699355946992,0.03525878386489532,264,length_control_common_subset,figures\final_drafts\data\figure3_history_length_control.csv,,
+B,SHARDED failure,0.5092436974789916,,,595,full_short_ack_binary_pairs,analysis\local_behavioral_v1\phase_l3\phase_l3_results.json,Rescued 0→1,303
+B,SHARDED failure,0.4907563025210084,,,595,full_short_ack_binary_pairs,analysis\local_behavioral_v1\phase_l3\phase_l3_results.json,Persistent failure 0→0,292
+B,SHARDED success,0.14672686230248308,,,1329,full_short_ack_binary_pairs,analysis\local_behavioral_v1\phase_l3\phase_l3_results.json,Harmed 1→0,195
+B,SHARDED success,0.8532731376975169,,,1329,full_short_ack_binary_pairs,analysis\local_behavioral_v1\phase_l3\phase_l3_results.json,Persistent success 1→1,1134
+C,actions,0.2226923076923077,0.18108012820512823,0.2649285714285714,508,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,
+C,code,-0.13327603561749904,-0.18029779879431446,-0.08709146617996794,470,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,
+C,data2text,-0.01004475185187415,-0.022340109060829342,0.0021114104443292468,593,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,
+C,database,0.03610927907767316,-0.006543717857357111,0.08049054592728058,487,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,
+C,math,0.05705319542138393,0.019997457493260144,0.09581528517787721,459,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,
+C,summary,-0.01083713747193563,-0.02074121002139009,-0.0009017573778215952,456,full_short_ack_pairs,figures\final_drafts\data\neutral_ack_full_breakdown.csv,,

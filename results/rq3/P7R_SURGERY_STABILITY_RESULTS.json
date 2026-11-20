@@ -1,0 +1,82 @@
+{
+  "subset_branches": 60,
+  "additional_repeat_branches": 120,
+  "repeats_per_branch": 3,
+  "all_three_outcome_class_consistency": 0.7166666666666667,
+  "pairwise_effect_sign_agreement": 0.8111111111111111,
+  "all_three_fail_to_success_consistency": 0.75,
+  "mean_within_branch_score_variance": 0.05649222997856229,
+  "median_within_branch_score_variance": 9.609816876465183e-05,
+  "baseline_fail_to_success_branches": 19,
+  "baseline_ftp_preserved_all_repeats": 7,
+  "by_model": {
+    "gpt-5.6-luna": {
+      "n": 10,
+      "all_class_same": 0.4,
+      "pair_sign_agreement": 0.6,
+      "mean_score_variance": 0.11157846571941932
+    },
+    "grok-4.5": {
+      "n": 13,
+      "all_class_same": 0.8461538461538461,
+      "pair_sign_agreement": 0.8974358974358974,
+      "mean_score_variance": 0.018699915375639933
+    },
+    "gpt-4o": {
+      "n": 12,
+      "all_class_same": 0.6666666666666666,
+      "pair_sign_agreement": 0.7777777777777778,
+      "mean_score_variance": 0.07410447193253342
+    },
+    "deepseek-ai/DeepSeek-V3.2": {
+      "n": 14,
+      "all_class_same": 0.7857142857142857,
+      "pair_sign_agreement": 0.8571428571428571,
+      "mean_score_variance": 0.04969167308892791
+    },
+    "Qwen/Qwen3-14B": {
+      "n": 11,
+      "all_class_same": 0.8181818181818182,
+      "pair_sign_agreement": 0.8787878787878788,
+      "mean_score_variance": 0.04051937774553033
+    }
+  },
+  "by_task": {
+    "actions": {
+      "n": 11,
+      "all_class_same": 0.7272727272727273,
+      "pair_sign_agreement": 0.8181818181818182,
+      "mean_score_variance": 0.0606060606060606
+    },
+    "code": {
+      "n": 9,
+      "all_class_same": 0.4444444444444444,
+      "pair_sign_agreement": 0.6296296296296297,
+      "mean_score_variance": 0.1234567901234568
+    },
+    "data2text": {
+      "n": 9,
+      "all_class_same": 0.7777777777777778,
+      "pair_sign_agreement": 0.8518518518518519,
+      "mean_score_variance": 0.00554912226408694
+    },
+    "database": {
+      "n": 12,
+      "all_class_same": 0.75,
+      "pair_sign_agreement": 0.8333333333333334,
+      "mean_score_variance": 0.05555555555555555
+    },
+    "math": {
+      "n": 9,
+      "all_class_same": 0.5555555555555556,
+      "pair_sign_agreement": 0.7037037037037037,
+      "mean_score_variance": 0.09876543209876543
+    },
+    "summary": {
+      "n": 10,
+      "all_class_same": 1.0,
+      "pair_sign_agreement": 1.0,
+      "mean_score_variance": 0.0006258365003622077
+    }
+  }
+}

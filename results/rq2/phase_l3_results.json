@@ -1,0 +1,332 @@
+{
+  "source": "analysis\\local_behavioral_v1\\rq2_paired_trajectory.csv",
+  "analysis_population": {
+    "paired_trajectories": 2973,
+    "unique_trajectories": 2973,
+    "binary_trajectories": 1924,
+    "continuous_trajectories": 1049,
+    "model_task_cells": 30,
+    "conditioned_on_valid_short_ack_pair": true
+  },
+  "overall_scores": {
+    "trajectory_weighted_sharded_mean": 0.5416633647341844,
+    "trajectory_weighted_short_ack_mean": 0.5745899516096175,
+    "trajectory_weighted_mean_delta": 0.032926586875433116,
+    "cell_equal_mean_delta": 0.026949476208342663
+  },
+  "binary_overall": {
+    "paired_n": 1924,
+    "baseline_failure_n": 595,
+    "baseline_success_n": 1329,
+    "n_00": 292,
+    "n_01": 303,
+    "n_10": 195,
+    "n_11": 1134,
+    "p_00": 0.15176715176715178,
+    "p_01": 0.15748440748440748,
+    "p_10": 0.10135135135135136,
+    "p_11": 0.5893970893970893,
+    "rescue_rate_given_failure": 0.5092436974789916,
+    "harm_rate_given_success": 0.14672686230248308,
+    "retention_rate_given_success": 0.8532731376975169,
+    "gross_change_rate": 0.2588357588357588,
+    "beneficial_change_rate": 0.15748440748440748,
+    "harmful_change_rate": 0.10135135135135136,
+    "net_delta": 0.056133056133056136,
+    "baseline_mean": 0.6907484407484408,
+    "short_ack_mean": 0.7468814968814969
+  },
+  "binary_by_task": {
+    "actions": {
+      "paired_n": 508,
+      "baseline_failure_n": 187,
+      "baseline_success_n": 321,
+      "n_00": 57,
+      "n_01": 130,
+      "n_10": 16,
+      "n_11": 305,
+      "p_00": 0.11220472440944881,
+      "p_01": 0.2559055118110236,
+      "p_10": 0.031496062992125984,
+      "p_11": 0.6003937007874016,
+      "rescue_rate_given_failure": 0.6951871657754011,
+      "harm_rate_given_success": 0.04984423676012461,
+      "retention_rate_given_success": 0.9501557632398754,
+      "gross_change_rate": 0.2874015748031496,
+      "beneficial_change_rate": 0.2559055118110236,
+      "harmful_change_rate": 0.031496062992125984,
+      "net_delta": 0.22440944881889763,
+      "baseline_mean": 0.6318897637795275,
+      "short_ack_mean": 0.8562992125984252
+    },
+    "code": {
+      "paired_n": 470,
+      "baseline_failure_n": 110,
+      "baseline_success_n": 360,
+      "n_00": 69,
+      "n_01": 41,
+      "n_10": 99,
+      "n_11": 261,
+      "p_00": 0.14680851063829786,
+      "p_01": 0.08723404255319149,
+      "p_10": 0.21063829787234042,
+      "p_11": 0.5553191489361702,
+      "rescue_rate_given_failure": 0.37272727272727274,
+      "harm_rate_given_success": 0.275,
+      "retention_rate_given_success": 0.725,
+      "gross_change_rate": 0.2978723404255319,
+      "beneficial_change_rate": 0.08723404255319149,
+      "harmful_change_rate": 0.21063829787234042,
+      "net_delta": -0.12340425531914893,
+      "baseline_mean": 0.7659574468085106,
+      "short_ack_mean": 0.6425531914893617
+    },
+    "database": {
+      "paired_n": 487,
+      "baseline_failure_n": 210,
+      "baseline_success_n": 277,
+      "n_00": 132,
+      "n_01": 78,
+      "n_10": 53,
+      "n_11": 224,
+      "p_00": 0.27104722792607805,
+      "p_01": 0.1601642710472279,
+      "p_10": 0.10882956878850103,
+      "p_11": 0.459958932238193,
+      "rescue_rate_given_failure": 0.37142857142857144,
+      "harm_rate_given_success": 0.19133574007220217,
+      "retention_rate_given_success": 0.8086642599277978,
+      "gross_change_rate": 0.26899383983572894,
+      "beneficial_change_rate": 0.1601642710472279,
+      "harmful_change_rate": 0.10882956878850103,
+      "net_delta": 0.0513347022587269,
+      "baseline_mean": 0.5687885010266941,
+      "short_ack_mean": 0.6201232032854209
+    },
+    "math": {
+      "paired_n": 459,
+      "baseline_failure_n": 88,
+      "baseline_success_n": 371,
+      "n_00": 34,
+      "n_01": 54,
+      "n_10": 27,
+      "n_11": 344,
+      "p_00": 0.07407407407407407,
+      "p_01": 0.11764705882352941,
+      "p_10": 0.058823529411764705,
+      "p_11": 0.7494553376906318,
+      "rescue_rate_given_failure": 0.6136363636363636,
+      "harm_rate_given_success": 0.07277628032345014,
+      "retention_rate_given_success": 0.9272237196765498,
+      "gross_change_rate": 0.17647058823529413,
+      "beneficial_change_rate": 0.11764705882352941,
+      "harmful_change_rate": 0.058823529411764705,
+      "net_delta": 0.058823529411764705,
+      "baseline_mean": 0.8082788671023965,
+      "short_ack_mean": 0.8671023965141612
+    }
+  },
+  "continuous_by_task": {
+    "data2text": {
+      "paired_n": 593,
+      "baseline_mean": 0.322000955889571,
+      "short_ack_mean": 0.313454135321054,
+      "mean_delta": -0.008546820568517072,
+      "median_delta": 0.0068161518811032,
+      "q10": -0.3048295119729191,
+      "q25": -0.1245964137945876,
+      "q75": 0.1230482261005647,
+      "q90": 0.23034791641213692,
+      "positive_n_eps01": 288,
+      "nochange_n_eps01": 48,
+      "negative_n_eps01": 257,
+      "positive_rate_eps01": 0.4856661045531197,
+      "nochange_rate_eps01": 0.08094435075885328,
+      "negative_rate_eps01": 0.433389544688027,
+      "changed_rate_eps01": 0.9190556492411467,
+      "mean_positive_delta": 0.15277289479643807,
+      "mean_negative_delta": -0.19101447038357192
+    },
+    "summary": {
+      "paired_n": 456,
+      "baseline_mean": 0.19828643971976864,
+      "short_ack_mean": 0.18723163133773638,
+      "mean_delta": -0.011054808382032275,
+      "median_delta": 0.00138227513227505,
+      "q10": -0.18837667887667886,
+      "q25": -0.0703741199276913,
+      "q75": 0.06392882479838999,
+      "q90": 0.12314074814074816,
+      "positive_n_eps01": 205,
+      "nochange_n_eps01": 55,
+      "negative_n_eps01": 196,
+      "positive_rate_eps01": 0.44956140350877194,
+      "nochange_rate_eps01": 0.1206140350877193,
+      "negative_rate_eps01": 0.4298245614035088,
+      "changed_rate_eps01": 0.8793859649122807,
+      "mean_positive_delta": 0.08563431918050175,
+      "mean_negative_delta": -0.1155286201617103
+    }
+  },
+  "overall_practical_outcome_structure": {
+    "positive_n": 796,
+    "positive_rate": 0.2677430205179953,
+    "unchanged_n": 1529,
+    "unchanged_rate": 0.5142953245879582,
+    "negative_n": 648,
+    "negative_rate": 0.21796165489404642,
+    "changed_n": 1444,
+    "changed_rate": 0.4857046754120417,
+    "note": "binary tasks use exact transitions; continuous tasks use epsilon=.01"
+  },
+  "breadth_magnitude": {
+    "mean_delta_vs_positive_rate": {
+      "n": 30,
+      "pearson": 0.36556256241550555,
+      "spearman": 0.3744576728032776
+    },
+    "mean_delta_vs_changed_rate": {
+      "n": 30,
+      "pearson": -0.25704700598102037,
+      "spearman": -0.37089776622879594
+    },
+    "mean_delta_vs_conditional_positive_magnitude": {
+      "n": 29,
+      "pearson": 0.09340335663219718,
+      "spearman": 0.3228970846757275
+    },
+    "continuous_cells_only": {
+      "mean_delta_vs_positive_rate": {
+        "n": 10,
+        "pearson": 0.9937689439940738,
+        "spearman": 0.9151515151515152
+      },
+      "mean_delta_vs_changed_rate": {
+        "n": 10,
+        "pearson": -0.6078754667015348,
+        "spearman": -0.4012176588288426
+      },
+      "mean_delta_vs_conditional_positive_magnitude": {
+        "n": 9,
+        "pearson": 0.8283310608289822,
+        "spearman": 0.6833333333333333
+      }
+    }
+  },
+  "contribution_concentration": {
+    "overall_net_effect_sum": 97.89074278066266,
+    "overall_positive_effect_mass": 364.80715829897485,
+    "overall_negative_effect_mass": -266.91641551831225,
+    "top_3_cells_share_positive_mass": 0.2439645110446565,
+    "top_3_cells": [
+      {
+        "model": "Qwen/Qwen3-14B",
+        "task": "actions",
+        "paired_n": 105,
+        "mean_delta": 0.34285714285714286,
+        "positive_effect_mass": 37.0
+      },
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "task": "actions",
+        "paired_n": 104,
+        "mean_delta": 0.23076923076923078,
+        "positive_effect_mass": 28.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "task": "actions",
+        "paired_n": 104,
+        "mean_delta": 0.21153846153846154,
+        "positive_effect_mass": 24.0
+      }
+    ],
+    "task_contribution": [
+      {
+        "task": "actions",
+        "n": 508,
+        "net": 114.0,
+        "positive_mass": 130.0
+      },
+      {
+        "task": "code",
+        "n": 470,
+        "net": -58.0,
+        "positive_mass": 41.0
+      },
+      {
+        "task": "data2text",
+        "n": 593,
+        "net": -5.0682645971306215,
+        "positive_mass": 44.12035900189993
+      },
+      {
+        "task": "database",
+        "n": 487,
+        "net": 25.0,
+        "positive_mass": 78.0
+      },
+      {
+        "task": "math",
+        "n": 459,
+        "net": 27.0,
+        "positive_mass": 54.0
+      },
+      {
+        "task": "summary",
+        "n": 456,
+        "net": -5.040992622206717,
+        "positive_mass": 17.686799297074977
+      }
+    ],
+    "model_contribution": [
+      {
+        "model": "Qwen/Qwen3-14B",
+        "n": 615,
+        "net": 70.50843737144464,
+        "positive_mass": 102.22421151867145
+      },
+      {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "n": 564,
+        "net": -77.65388186154861,
+        "positive_mass": 47.51815963574614
+      },
+      {
+        "model": "gpt-4o",
+        "n": 611,
+        "net": 23.556031506673854,
+        "positive_mass": 69.59556909602567
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "n": 619,
+        "net": 32.86959952073272,
+        "positive_mass": 73.11924952983536
+      },
+      {
+        "model": "grok-4.5",
+        "n": 564,
+        "net": 48.61055624336005,
+        "positive_mass": 72.34996851869629
+      }
+    ],
+    "top_tenth_all": {
+      "population_n": 2973,
+      "top_n": 298,
+      "positive_mass": 364.8071582989749,
+      "top_tenth_share_of_positive_mass": 0.816869935857389
+    },
+    "top_tenth_continuous": {
+      "population_n": 1049,
+      "top_n": 105,
+      "positive_mass": 61.8071582989749,
+      "top_tenth_share_of_positive_mass": 0.4791512588605127
+    }
+  },
+  "classification": {
+    "binary": "exact: positive=0->1, negative=1->0, unchanged=0->0 or 1->1",
+    "continuous": "practical: positive=delta>.01, unchanged=abs(delta)<=.01, negative=delta<-.01",
+    "raw_continuous_delta_retained": true
+  }
+}

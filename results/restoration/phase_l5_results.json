@@ -1,0 +1,326 @@
+{
+  "design": {
+    "interface_version": "phase_l5_restoration_v1",
+    "sampling_seed": 20260819,
+    "rq3_valid_branches": 1440,
+    "joined_branches": 1414,
+    "unjoined_branches": 26,
+    "joined_trajectories": 231,
+    "joined_cells": 30,
+    "joined_effect_classes": {
+      "positive": 395,
+      "zero": 867,
+      "negative": 152
+    },
+    "testability": {
+      "control_not_directional": 867,
+      "floor_limited": 36,
+      "floor_limited_eps01": 54,
+      "testable": 457
+    },
+    "manifest": {
+      "total": 340,
+      "cohorts": {
+        "P": 120,
+        "P0": 120,
+        "N": 50,
+        "N0": 50
+      },
+      "validation_n": 24,
+      "matching_methods": {
+        "same_trajectory": 51,
+        "same_model_task": 61,
+        "same_task": 58,
+        "fallback": 0
+      }
+    },
+    "source_files": [
+      "data/rq3/turn_surgery_branches_compact.csv",
+      "data/rq2/rq2_paired_trajectory.csv",
+      "external_raw/P5_scaling_history/manifests/p5_turn_surgery_pool.csv",
+      "external_raw/P5_scaling_history/neutral_ack_v1_merged.jsonl"
+    ]
+  },
+  "execution": {
+    "planned": 340,
+    "completed": 339,
+    "missing": 1,
+    "completed_by_cohort": {
+      "N": 50,
+      "N0": 50,
+      "P": 120,
+      "P0": 119
+    },
+    "missing_rows": [
+      {
+        "restoration_branch_id": "ed2e6d4f1074e2597574f4ca",
+        "cohort": "P0",
+        "model": "grok-4.5",
+        "task": "code",
+        "error_type": "Exception",
+        "error": "Failed to get response from OpenAI"
+      }
+    ]
+  },
+  "comparisons": {
+    "positive_surgery": {
+      "influential_n": 109,
+      "control_n": 109,
+      "influential_reciprocal_n": 52,
+      "control_reciprocal_n": 72,
+      "influential_rate": 0.47706422018348627,
+      "control_rate": 0.6605504587155964,
+      "difference": -0.1834862385321101,
+      "difference_ci_low": -0.32008789764781476,
+      "difference_ci_high": -0.03295861426004254,
+      "odds_ratio": 0.47226386806596704,
+      "odds_ratio_ci_low": 0.26154201814659717,
+      "odds_ratio_ci_high": 0.8740270511924053,
+      "bootstrap_clusters": 85,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260820,
+      "adjusted_odds_ratio": 0.4179961541586799,
+      "adjusted_or_ci_low": 0.21693864236610863,
+      "adjusted_or_ci_high": 0.8053926353820622,
+      "adjusted_p_value": 0.009139883244780682,
+      "adjusted_n": 218,
+      "eligible_match_sets": 109,
+      "influential_full_composition": {
+        "neutral": 54,
+        "reciprocal": 58,
+        "discordant": 8
+      },
+      "control_full_composition": {
+        "neutral": 35,
+        "reciprocal": 72,
+        "not_testable": 10,
+        "discordant": 2,
+        "missing": 1
+      }
+    },
+    "negative_surgery": {
+      "influential_n": 50,
+      "control_n": 50,
+      "influential_reciprocal_n": 19,
+      "control_reciprocal_n": 12,
+      "influential_rate": 0.38,
+      "control_rate": 0.24,
+      "difference": 0.14,
+      "difference_ci_low": -0.06595744680851062,
+      "difference_ci_high": 0.34353813013851464,
+      "odds_ratio": 1.9066666666666667,
+      "odds_ratio_ci_low": 0.7183550067528458,
+      "odds_ratio_ci_high": 4.9761937041338316,
+      "bootstrap_clusters": 55,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260821,
+      "adjusted_odds_ratio": 2.5488111555459,
+      "adjusted_or_ci_low": 0.8900173969710874,
+      "adjusted_or_ci_high": 7.299226204728068,
+      "adjusted_p_value": 0.08134246483066289,
+      "adjusted_n": 100,
+      "eligible_match_sets": 50,
+      "influential_full_composition": {
+        "discordant": 24,
+        "neutral": 7,
+        "reciprocal": 19
+      },
+      "control_full_composition": {
+        "discordant": 33,
+        "reciprocal": 12,
+        "neutral": 5
+      }
+    }
+  },
+  "positive_subgroups": {
+    "binary": {
+      "influential_n": 90,
+      "control_n": 90,
+      "influential_reciprocal_n": 38,
+      "control_reciprocal_n": 57,
+      "influential_rate": 0.4222222222222222,
+      "control_rate": 0.6333333333333333,
+      "difference": -0.21111111111111108,
+      "difference_ci_low": -0.356672708618331,
+      "difference_ci_high": -0.05744460672250643,
+      "odds_ratio": 0.4272463768115942,
+      "odds_ratio_ci_low": 0.2263102368877906,
+      "odds_ratio_ci_high": 0.7933212663464378,
+      "bootstrap_clusters": 62,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260830
+    },
+    "continuous": {
+      "influential_n": 19,
+      "control_n": 19,
+      "influential_reciprocal_n": 14,
+      "control_reciprocal_n": 15,
+      "influential_rate": 0.7368421052631579,
+      "control_rate": 0.7894736842105263,
+      "difference": -0.052631578947368474,
+      "difference_ci_low": -0.38312229437229445,
+      "difference_ci_high": 0.39,
+      "odds_ratio": 0.7653958944281525,
+      "odds_ratio_ci_low": 0.11508112867385016,
+      "odds_ratio_ci_high": 6.066666666666666,
+      "bootstrap_clusters": 23,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260831
+    }
+  },
+  "task_rates": [
+    {
+      "comparison": "positive_surgery",
+      "task": "actions",
+      "sample_role": "influential",
+      "n": 20,
+      "reciprocal_n": 9,
+      "reciprocal_rate": 0.45
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "actions",
+      "sample_role": "matched_nochange",
+      "n": 20,
+      "reciprocal_n": 4,
+      "reciprocal_rate": 0.2
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "code",
+      "sample_role": "influential",
+      "n": 13,
+      "reciprocal_n": 11,
+      "reciprocal_rate": 0.8461538461538461
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "code",
+      "sample_role": "matched_nochange",
+      "n": 13,
+      "reciprocal_n": 10,
+      "reciprocal_rate": 0.7692307692307693
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "data2text",
+      "sample_role": "influential",
+      "n": 5,
+      "reciprocal_n": 3,
+      "reciprocal_rate": 0.6
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "data2text",
+      "sample_role": "matched_nochange",
+      "n": 5,
+      "reciprocal_n": 2,
+      "reciprocal_rate": 0.4
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "database",
+      "sample_role": "influential",
+      "n": 20,
+      "reciprocal_n": 9,
+      "reciprocal_rate": 0.45
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "database",
+      "sample_role": "matched_nochange",
+      "n": 20,
+      "reciprocal_n": 17,
+      "reciprocal_rate": 0.85
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "math",
+      "sample_role": "influential",
+      "n": 37,
+      "reciprocal_n": 9,
+      "reciprocal_rate": 0.24324324324324326
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "math",
+      "sample_role": "matched_nochange",
+      "n": 37,
+      "reciprocal_n": 26,
+      "reciprocal_rate": 0.7027027027027027
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "summary",
+      "sample_role": "influential",
+      "n": 14,
+      "reciprocal_n": 11,
+      "reciprocal_rate": 0.7857142857142857
+    },
+    {
+      "comparison": "positive_surgery",
+      "task": "summary",
+      "sample_role": "matched_nochange",
+      "n": 14,
+      "reciprocal_n": 13,
+      "reciprocal_rate": 0.9285714285714286
+    },
+    {
+      "comparison": "negative_surgery",
+      "task": "data2text",
+      "sample_role": "influential",
+      "n": 20,
+      "reciprocal_n": 6,
+      "reciprocal_rate": 0.3
+    },
+    {
+      "comparison": "negative_surgery",
+      "task": "data2text",
+      "sample_role": "matched_nochange",
+      "n": 20,
+      "reciprocal_n": 7,
+      "reciprocal_rate": 0.35
+    },
+    {
+      "comparison": "negative_surgery",
+      "task": "summary",
+      "sample_role": "influential",
+      "n": 30,
+      "reciprocal_n": 13,
+      "reciprocal_rate": 0.43333333333333335
+    },
+    {
+      "comparison": "negative_surgery",
+      "task": "summary",
+      "sample_role": "matched_nochange",
+      "n": 30,
+      "reciprocal_n": 5,
+      "reciprocal_rate": 0.16666666666666666
+    }
+  ],
+  "continuous_magnitude": {
+    "signed_reciprocal": {
+      "n": 79,
+      "trajectory_clusters": 48,
+      "spearman_rho": -0.013839945975590849,
+      "ci_low": -0.2892033364426056,
+      "ci_high": 0.2514943896156694,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260840
+    },
+    "absolute_magnitude": {
+      "n": 79,
+      "trajectory_clusters": 48,
+      "spearman_rho": 0.081152963781235,
+      "ci_low": -0.16871841117564162,
+      "ci_high": 0.3203361791509771,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20260841
+    }
+  },
+  "classification": {
+    "binary": "exact score difference",
+    "continuous": "epsilon=0.01 practical tolerance",
+    "primary_uncertainty": "trajectory-clustered percentile bootstrap"
+  }
+}
