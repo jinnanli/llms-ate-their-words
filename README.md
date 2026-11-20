@@ -1,16 +1,16 @@
-# LLMs Ate Their Words
+# What if LLMs Ate Their Words: Causal History Effects in Multi-Turn Interaction
+
+**Accepted at WSDM 2027** | [Paper (arXiv)](https://arxiv.org/abs/2609.05882)
 
 ## Overview
 
-This project studies how self-generated assistant history affects multi-turn
-language-model performance. Whole-history neutralization edits all intermediate
-assistant replies; Turn Surgery edits one reply and regenerates the subsequent
-assistant turns. Both interventions keep the recorded user-message sequence fixed.
-
-The repository includes the original supplementary code and result tables,
-Qwen3-14B internal analyses, and additional Null-Replay controls. On 40 selected
-Qwen3-14B trajectories across five tasks, Turn Surgery improves the average
-score over unedited replay by **0.0847 (95% CI: [0.0270, 0.1543])**.
+This work studies how an LLM's own previous replies affect its performance in
+multi-turn interaction. Whole-History Neutralization measures the overall effect
+of assistant history, while Turn Surgery locates influential individual turns.
+Both interventions keep the recorded user-message sequence fixed. Across tasks,
+models, and turns, assistant history can help, hurt, or leave performance unchanged.
+The repository provides behavioral experiments, Qwen3-14B internal analyses,
+and offline reproduction tools.
 
 ## Installation
 
@@ -27,8 +27,7 @@ Activate the environment with `source .venv/bin/activate` on Linux/macOS or
 python -m pip install -r requirements.txt
 ```
 
-The tested versions are NumPy 2.4.6, pandas 2.2.3, SciPy 1.17.1,
-statsmodels 0.15.0, Matplotlib 3.11.2, and tabulate 0.10.0. Keep the pandas pin:
+Dependencies are pinned in `requirements.txt`. Keep pandas 2.2.3:
 CSV float parsing affects classifications at the exact epsilon=.01 boundary.
 API and GPU dependencies are provided separately in `requirements-api.txt` and
 `requirements-gpu.txt`.
@@ -48,7 +47,7 @@ These commands run on CPU using the included data, without API credentials.
 
 ## Reproducing Results
 
-### Original supplementary analyses
+### Behavioral analyses
 
 ```bash
 python code/statistics/analyze_phase_l1.py
@@ -61,12 +60,12 @@ python code/statistics/analyze_phase_l3.py
 | Whole-history neutralization effects and outcome transitions | `data/rq2/rq2_paired_trajectory.csv` | `results/reproduced/phase_l3/` |
 
 The inputs cover 237 trajectories / 1,440 Surgery branches and 2,973
-SHARDED–SHORT pairs, respectively. Frozen reference statistics are in
+SHARDED–SHORT pairs, respectively. Reference statistics are in
 `results/rq2/` and `results/rq3/`. The original Surgery `delta` is
 **Surgery − Original**; the Null-Replay analysis below estimates **Surgery − Null**.
 
 RQ1 cell means and intervals are in `data/rq1/rq1_cell_summary.csv` and
-`results/combined/P5_FINAL_STATISTICAL_RESULTS.json`. The review reproduction
+`results/combined/P5_FINAL_STATISTICAL_RESULTS.json`. The Null-Replay reproduction
 command cross-checks all 90 model/task/mode means and denominators and writes
 `rq1_task_macro_point_estimates.csv`. Recomputing the original RQ1 bootstrap
 intervals with `code/turn_surgery/p5_analyze.py` requires the source-trajectory
@@ -75,6 +74,9 @@ likewise requires the FULL-trajectory join; cell-level correlation is available
 through the compact-data workflow below.
 
 ### Null-Replay and supporting analyses
+
+On 40 selected Qwen3-14B trajectories across five tasks, Turn Surgery improves
+the average score over unedited replay by **0.0847 (95% CI: [0.0270, 0.1543])**.
 
 ```bash
 python code/review/reproduce_review.py
@@ -118,10 +120,9 @@ python code/review/test_replay.py
 python code/release_checks.py
 ```
 
-The first command checks replay construction with synthetic inputs. The second
-runs the offline validation, statistics, figures, and numeric reference checks.
-Recorded outcomes are available in [docs/release_validation.json](docs/release_validation.json).
-All generated offline outputs are separated from the frozen inputs and results.
+The first command tests replay construction and Code output capture. The second
+runs all offline validation, statistics, figures, and numeric reference checks,
+writing its report to `docs/release_validation.json`.
 
 ## Running Experiments
 
@@ -139,9 +140,7 @@ metadata are in `configs/`; prompt templates are in `prompts/`.
 Prepare the benchmark at `data/sharded_instructions_600.json`. Each sample
 contains `task_id`, `task`, `shards`, and the reference fields used by its adapter
 in `code/evaluation/tasks/`. History interventions additionally require recorded
-SHARDED conversations and the manifests described below. The following examples
-are external-data execution interfaces; release testing covers their source
-and synthetic replay construction rather than live API or GPU inference.
+SHARDED conversations and the manifests described below.
 
 ### FULL, CONCAT, and SHARDED
 
@@ -172,19 +171,19 @@ python code/interventions/p5_counterfactual_runner.py --mode length_matched_ack 
 python code/interventions/p5_counterfactual_runner.py --mode surgery --manifest external_raw/surgery_manifest.csv --output results/live/surgery.jsonl --dry-run
 ```
 
-Check the planned population, then remove `--dry-run` to execute. The original
-runner uses its historical Summary evaluator alias `gpt-4o`. Use the following
+Check the planned population, then remove `--dry-run` to execute. This
+runner uses the Summary evaluator alias `gpt-4o`. Use the following
 adapter for new paired Null-Replay comparisons with fixed-version Summary scoring.
 
 ### Null-Replay controls
 
-P0-A compares unedited replay with single-turn Surgery, regenerating all
-assistant replies after the target in both conditions. P0-B compares
-Null/SHORT/MATCHED histories while regenerating only the final answer.
+Turn Surgery controls regenerate all assistant replies after the target in both
+the unedited and edited conditions (`--mode p0a`). Whole-history controls compare
+Null/SHORT/MATCHED histories while regenerating only the final answer (`--mode p0b`).
 
-Provide JSONL with one row per branch (P0-A) or trajectory (P0-B):
+Provide JSONL with one row per branch (`p0a`) or trajectory (`p0b`):
 `pair_id`, `trajectory_id`, `task`, `model`, `source_instance_id`,
-`original_messages`, `user_sequence_hash`, and `target_turn` (P0-A only,
+`original_messages`, `user_sequence_hash`, and `target_turn` (`p0a` only,
 zero-based). Messages are ordered role/content objects with one system message
 and matching user/assistant turns. Compute the user hash with
 `code/review/p0_common.py`'s `user_sequence_hash`; `source_instance_id` joins
@@ -212,7 +211,7 @@ The Qwen pipeline includes attention, counterfactual attention redistribution,
 continuation margin, direct/full knockout, state propagation, and state restoration.
 Use `Qwen/Qwen3-14B` at revision
 `40c069824f4251a91eefaf281ebe4c544efd3e18`, with bfloat16, greedy decoding,
-and thinking disabled for the frozen configuration.
+and thinking disabled.
 
 Install a CUDA-compatible PyTorch build, then:
 
@@ -234,7 +233,7 @@ The first command generates native behavior. The second validates restoration
 inputs; remove `--validate-inputs-only` to run the probe. Its native directory
 contains `server_native_baselines.jsonl` and `server_native_surgeries.jsonl`.
 Restoration outputs record pair/layer/direction measurements and validation
-records. See each parser for layer and sharding options. Keep discovery,
+records. Use `--help` for layer and sharding options. Keep discovery,
 formal held-out, and prospective populations separate during aggregation.
 
 ## Data
@@ -250,20 +249,19 @@ formal held-out, and prospective populations separate during aggregation.
 Offline analyses use the included result tables. Running model experiments
 requires the corresponding benchmark data, conversation histories, and model
 access. Obtain BFCL, LiveCodeBench, ToTTo, Spider, GSM8K, and SummHay assets from
-their original distributions under their respective terms. The included compact
-tables contain experimental measurements; benchmark corpora, full conversation
-logs, databases, and model weights are not bundled. Code licenses do not grant
-rights to those separately obtained assets. See the
+their original distributions under their respective terms. Compact measurements
+are included here; benchmark corpora, full histories, databases, and weights
+are external inputs. See the
 [file-level source audit](docs/THIRD_PARTY_PROVENANCE.md) for evaluator and prompt origins.
 
 - **Database:** prepare the compatible Spider **test-suite** files under
   `data/spider/databases/<db_id>/`. The evaluator executes reference and predicted
   SQL across that directory with `plug_value=True` and `keep_distinct=False`.
-  Verify the suite version, schemas, and hashes; ordinary Spider databases alone
-  do not establish test-suite equivalence.
+  Use the matching test-suite version, schemas, and file hashes rather than
+  substituting ordinary Spider databases.
 - **Code evaluation:** run generated programs in a disposable sandbox isolated
   from credentials and valuable data.
-- **Review populations:** the five-task Qwen subset contains selected
+- **Null-Replay population:** the five-task Qwen subset contains selected
   degraded/replay-eligible trajectories: Actions, Code, D2T, Math, and Summary.
   Its paired estimates are separate from the original five-model results.
 - **Length and model provenance:** MATCHED controls whitespace spans, not exact
@@ -275,15 +273,21 @@ rights to those separately obtained assets. See the
 
 ## Citation & License
 
-Paper link, final citation, and DOI: **to be supplied by the authors**.
-For now, cite the repository URL and the commit used for reproduction.
+If you find this work useful, please cite our paper:
 
-The inherited [MIT license](LICENSE), including Microsoft Corporation's copyright
-notice, is preserved. Adapted components also carry Apache-2.0, MIT, or separately
-identified terms; the root license does not replace those notices.
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) links the retained license texts
-and file-level provenance. The historical Stack Overflow-derived stdout helper
-has been replaced with standard-library context managers. Project-authored additions
-are released under MIT with author authorization; third-party components keep
-their separately documented terms. External data and models retain
-their respective licenses and terms.
+```bibtex
+@article{li2026if,
+  title={What if LLMs Ate Their Words: Causal History Effects in Multi-Turn Interaction},
+  author={Li, Jinnan and Fu, Zheren and Wang, Yue and Li, Jinzhe and Wu, Yuan and Chang, Yi},
+  journal={arXiv preprint arXiv:2609.05882},
+  year={2026}
+}
+```
+
+The paper is accepted at WSDM 2027; the citation above refers to the arXiv version.
+
+Project additions are released under [MIT](LICENSE). Microsoft Corporation's
+copyright notice is retained for the inherited framework. Third-party evaluators
+and prompts retain their respective licenses and attribution, detailed in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). External data and models follow
+their own terms.
